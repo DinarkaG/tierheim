@@ -1,0 +1,50 @@
+.tierschutzverein h1{
+  position: absolute;
+ top: 16vw;
+  left: 10vw;
+  color: #654321;
+  font-size: 60px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.ev h2{
+  position: absolute;
+  top: 22vw;
+  left: 13vw;
+  color: #654321;
+  font-size: 35px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.finde{
+  position: absolute;
+  width: 20vw;
+  height: 5vw;
+  left: 28vw;
+  top: 28vw;
+  background: #A8E4B8;
+  border-radius: 40px;
+  /*font-family: 'Arial';*/
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 37px;
+  color: #654321;
+  border-color: transparent;
+  text-decoration: none;
+}
+
+.finde a {
+  text-decoration: none;
+  color: #654321;
+}
+
+
+
+
