@@ -9,7 +9,7 @@ import {HomeComponent} from "./home/home.component";
 import {ContactComponent} from "./contact/contact.component";
 import { CardComponent } from './card/card.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
-//import { ImpressumComponent } from './impressum/impressum.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
     HomeComponent,
     ContactComponent,
     VermittlungComponent,
-    //ImpressumComponent,
+    ImpressumComponent,
     ButtonsComponent
 
 
