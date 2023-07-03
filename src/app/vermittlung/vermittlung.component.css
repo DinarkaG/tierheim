@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+}
+
+app-card {
+  flex: 1;
+  max-width: 33%; /* Hier können Sie die maximale Breite anpassen */
+  margin: 10px;
+}

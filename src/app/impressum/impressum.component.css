@@ -1,11 +1,11 @@
-footer {background-color: #FEE8D0;
+footer {
+  background-color: #FEE8D0;
   width: 100%;
   height: 240px;
-  left: 0;
-  position: fixed;
-  bottom: 0;
   font-family: Arial;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  position: fixed;
+  bottom: 0;
 }
 h1   {color: blue;}
 p    {color: #555555;
@@ -13,6 +13,9 @@ p    {color: #555555;
   margin-right: 30px;
   margin-top: 30px;
   text-align: center;
+}
+body {
+  padding-bottom: 240px; /* oder verwenden Sie eine geeignete Höhe, die Platz für den Footer lässt */
 }
 
 .dreiTeil {
@@ -139,4 +142,3 @@ form{
   align-items : center ;
   position: absolute;
 }
-
