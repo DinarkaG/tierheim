@@ -1,12 +1,10 @@
 
-
-
 <div class="body">
 <div class="slideshow-container">
   <div class="slide active">
     <div class="container">
       <div class="wrapper">
-        <div class="banner-image" > </div>
+        <img width="200" [src]="bild"  alt="tier">
         <h1>{{ tierart }}</h1>
         <p>{{ beschreibung }}
         </p>
@@ -22,4 +20,51 @@
 
 </div>
 
+<!-- Der Inhalt deiner Webseite -->
+  <!--<div class = "slide">
+    <h1>Hund</h1>
+    <p>Flauschiger Stubenwolf
+    </p>
+  </div>
+    <div class="button-wrapper">
+      <button class="btn outline">Details</button>
+      <button class="btn fill">Filter</button>
+  </div>
+  </div>-->
 
+
+
+  <!--<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(slideIndex) {
+      slides.forEach((slide, index) => {
+        if (index === slideIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    const nextButton = document.getElementById('next-button');
+    const prevButton = document.getElementById('prev-button');
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', previousSlide);
+  </script>
+
+  <button id="prev-button">Vorherige</button>
+  <button id="next-button">Nächste</button>
+  </script>-->

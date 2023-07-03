@@ -12,6 +12,7 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { SpendenComponent } from './spenden/spenden.component';
+import { TiercardsComponent } from './tiercards/tiercards.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SpendenComponent } from './spenden/spenden.component';
     VermittlungComponent,
     ImpressumComponent,
     ButtonsComponent,
-    SpendenComponent
+    SpendenComponent,
+    TiercardsComponent
 
 
   ],

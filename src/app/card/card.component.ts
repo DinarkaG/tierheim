@@ -9,9 +9,11 @@ import {Component, Input} from '@angular/core';
 export class CardComponent {
   @Input() tierart: string;
   @Input() beschreibung: string;
+  @Input() bild: string;
 
   constructor() {
     this.tierart = 'Card Title';
-    this.beschreibung = 'path/to/default-image.jpg';  }
+    this.beschreibung = 'Tier Info';
+    this.bild = 'path/to/default-image.jpg'; }
 }
 
