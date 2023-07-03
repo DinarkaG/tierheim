@@ -5,7 +5,9 @@ footer {
   font-family: Arial;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
+
+  /*bottom: 200px;*/
 }
 h1   {color: blue;}
 p    {color: #555555;
