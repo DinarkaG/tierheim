@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+}
+
+app-card {
+  flex: 1;
+  max-width: 33%; /* Hier können Sie die maximale Breite anpassen */
+  margin: 10px;
+}
+
+.KatzenKarte .container2{
+  background-color: #FFDCF4;/* Beispiel: Farbe auf "rot" setzen
+ */
+}
+
+.HundeKarte .container2{
+  background-color: #E2F0C6;/* Beispiel: Farbe auf "rot" setzen
+ */
+}
+
+.hundeliste {
+  margin-left: 6rem;
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  grid-gap: 5rem 5rem; /* spacing between columns: 300px, spacing between rows: 0 */
+}
+
+.card {
+  width: 70%;
+}
+

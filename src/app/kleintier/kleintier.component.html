@@ -1,1 +1,13 @@
-<p>kleintier works!</p>
+<div class="container">
+  <app-card class = "KatzenKarte" [tierart]="'Katzen'" [beschreibung]="'Kuscheltiger'" [groesse]="'210'" [bild] = "'assets/images/Katze.png'" [weblink] = "'https://de.wikipedia.org/wiki/Hauskatze'" [routerLink]="'/katze'"></app-card>
+  <app-card [tierart]="'Hunde'" [beschreibung]="'Kuschelwolf'" [groesse]="'170'" [bild] = "'assets/images/Hund.png'" [weblink] = "'https://de.wikipedia.org/wiki/Hund'" [routerLink]="'/hund'"></app-card>
+  <app-card class = "HundeKarte" [tierart]="'Kleintiere'" [beschreibung]="'Kuschelmini'" [groesse]="'155'" [bild] = "'assets/images/Hase.png'" [weblink] = "'https://de.wikipedia.org/wiki/Kleintier'" [routerLink]="'/kleintier'"></app-card>
+</div>
+
+<div class="kleintierliste">
+  <app-tiercards class = "card" [tierart]="'Kleintier'" [beschreibung]="'Kuschelmini'" [groesse]="'210'" [bild] = "'assets/images/Hase.png'" ></app-tiercards>
+  <app-tiercards class = "card" [tierart]="'Kleintier'" [beschreibung]="'Kuschelmini'" [groesse]="'210'" [bild] = "'assets/images/Hase.png'" ></app-tiercards>
+  <app-tiercards class = "card" [tierart]="'Kleintier'" [beschreibung]="'Kuschelmini'" [groesse]="'210'" [bild] = "'assets/images/Hase.png'" ></app-tiercards>
+  <app-tiercards class = "card" [tierart]="'Kleintier'" [beschreibung]="'Kuschelmini'" [groesse]="'210'" [bild] = "'assets/images/Hase.png'" ></app-tiercards>
+
+</div>

@@ -9,7 +9,7 @@
 .container2 {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgb(234, 246, 252);
+  background-color: rgb(255, 240, 229);
   border-radius: 12px;
   border: 1px solid rgb(253, 253, 253);
   padding: 38px;
@@ -92,7 +92,7 @@ p {
 
 .fill:hover{
   transform: scale(1.125);
-  border-color: rgba(255, 255, 255, 0.9);
+  border-color: rgb(255, 187, 133);
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
   transition: all .3s ease;
 }
