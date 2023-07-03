@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 120vh;
+
+}
+.content {
+  flex: 1;
+
+}
+
+footer {
+  position: relative;
+  background-color: #FEE8D0;
+  width: 100%;
+  top: 5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  margin-top: auto;
+}

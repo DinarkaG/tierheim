@@ -1,12 +1,11 @@
 
-
-<!--Navbar -->
+<!-- Navbar -->
 <app-header-d></app-header-d>
 
-<!--Home -->
+<!-- Home -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
 
-<!--<app-contact></app-contact> -->
-
-<!--Hier kann dann komponente Footer hinzugefügt werden -->
-<app-impressum></app-impressum>
-<router-outlet></router-outlet>
+<!-- Footer -->
+<footer><app-impressum></app-impressum></footer>
