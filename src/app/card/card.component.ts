@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 
 @Component({
@@ -7,5 +7,11 @@ import {Component} from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  @Input() tierart: string;
+  @Input() beschreibung: string;
 
+  constructor() {
+    this.tierart = 'Card Title';
+    this.beschreibung = 'path/to/default-image.jpg';  }
 }
+
