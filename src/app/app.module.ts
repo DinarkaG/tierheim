@@ -11,6 +11,7 @@ import { CardComponent } from './card/card.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { SpendenComponent } from './spenden/spenden.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
     ContactComponent,
     VermittlungComponent,
     ImpressumComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    SpendenComponent
 
 
   ],
