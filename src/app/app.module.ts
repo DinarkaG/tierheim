@@ -13,6 +13,9 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { SpendenComponent } from './spenden/spenden.component';
 import { TiercardsComponent } from './tiercards/tiercards.component';
+import { HundComponent } from './hund/hund.component';
+import { KatzeComponent } from './katze/katze.component';
+import { KleintierComponent } from './kleintier/kleintier.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { TiercardsComponent } from './tiercards/tiercards.component';
     ImpressumComponent,
     ButtonsComponent,
     SpendenComponent,
-    TiercardsComponent
+    TiercardsComponent,
+    HundComponent,
+    KatzeComponent,
+    KleintierComponent
 
 
   ],

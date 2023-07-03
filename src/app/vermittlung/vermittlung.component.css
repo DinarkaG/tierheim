@@ -7,6 +7,13 @@ app-card {
   max-width: 33%; /* Hier können Sie die maximale Breite anpassen */
   margin: 10px;
 }
-.KatzenKarte {
-  background-color: #ff0000; /* Beispiel: Farbe auf "rot" setzen */
+
+.KatzenKarte .container2{
+  background-color: #FFDCF4;/* Beispiel: Farbe auf "rot" setzen
+ */
+}
+
+.HundeKarte .container2{
+  background-color: #E2F0C6;/* Beispiel: Farbe auf "rot" setzen
+ */
 }
