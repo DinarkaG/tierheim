@@ -1,0 +1,18 @@
+.spenden{
+  display: flex;
+  width: 100%;
+  background-color: rgba(254, 232, 208, 0.5);
+}
+.spendentext{
+
+}
+.uberschrift{
+  font-size: 2em;
+}
+
+.uberschriftZwei{
+  font-size: 1.3em;
+}
+ul{
+  line-height: 3em;
+}
