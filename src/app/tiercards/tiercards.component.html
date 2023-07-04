@@ -5,12 +5,12 @@
       <div class="container2">
         <div class="wrapper">
           <img [width]="groesse" [src]="bild"  alt="tier">
-          <h1>{{ tierart }}</h1>
+          <h1>{{ name }}</h1>
           <p>{{ beschreibung }}
           </p>
         </div>
         <div class="button-wrapper">
-          <button class="btn outline">Ansehen</button>
+          <button (click)="openPopup(tiername, tierrasse, tiergeschlecht, tieralter, tierkrankheit, tierbeschreibung)" class="btn outline">Ansehen</button>
         </div>
       </div>
     </div>

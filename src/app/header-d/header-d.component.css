@@ -1,13 +1,13 @@
 nav {
-  padding-right: 7rem;
-  left: 55rem;
+  padding-right: 1rem;
+  left: 45rem;
   top: 1rem;
 }
 
 nav ul{
   list-style: none;
   display: flex;
-  /*gap: 20px;*/
+
 }
 
 
@@ -24,7 +24,6 @@ nav a{
 
 nav a::after{
   content: '';
-  height: 2.5px;
   width: 0;
   background: #A8E4B8;
   position: absolute;

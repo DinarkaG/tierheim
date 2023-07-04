@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,9 @@ import { TiercardsComponent } from './tiercards/tiercards.component';
 import { HundComponent } from './hund/hund.component';
 import { KatzeComponent } from './katze/katze.component';
 import { KleintierComponent } from './kleintier/kleintier.component';
+import { PopupComponent } from './popup/popup.component';
+
+
 
 @NgModule({
   declarations: [
@@ -32,13 +36,13 @@ import { KleintierComponent } from './kleintier/kleintier.component';
     TiercardsComponent,
     HundComponent,
     KatzeComponent,
-    KleintierComponent
-
-
+    KleintierComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
