@@ -11,6 +11,9 @@ p    {color: #555555;
   bottom: 0;
 
 }
+.text{
+  padding: 1rem;
+}
 .innen {
   width:500px;
 }
