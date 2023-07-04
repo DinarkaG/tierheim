@@ -1,11 +1,11 @@
 nav {
   padding-right: 1rem;
-  left: 45rem;
+  left: 50rem;
   top: 1rem;
-
 }
 
 nav ul{
+
   list-style: none;
   display: flex;
   /*gap: 20px;*/
