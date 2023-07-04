@@ -1,14 +1,10 @@
 nav {
-
-
   padding-right: 7rem;
   left: 55rem;
   top: 1rem;
-
 }
 
 nav ul{
-
   list-style: none;
   display: flex;
   /*gap: 20px;*/
@@ -24,7 +20,6 @@ nav a{
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
   /*text-align: center;*/
-
 }
 
 nav a::after{
@@ -49,7 +44,9 @@ nav a:hover::after{
   transform: translate(-0%, -20%);
 }
 
-
+.ellipse{
+  width: 60rem;
+}
 
 
 

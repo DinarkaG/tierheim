@@ -1,7 +1,7 @@
 
 .tierschutzverein h1{
   position: absolute;
-  top: 16vw;
+  top: 14vw;
   left: 10vw;
   color: #654321;
   font-size: 60px;
@@ -13,7 +13,7 @@
 
 .ev h2{
   position: absolute;
-  top: 22vw;
+  top: 20vw;
   left: 13vw;
   color: #654321;
   font-size: 35px;
@@ -28,7 +28,7 @@
   width: 20vw;
   height: 5vw;
   left: 28vw;
-  top: 28vw;
+  top: 26vw;
   background: #A8E4B8;
   border-radius: 40px;
   /*font-family: 'Arial';*/
@@ -47,7 +47,7 @@
 }
 
 .maintext{
-  height: 45vh;
+  height: 23vh;
 }
 
 
