@@ -1,7 +1,7 @@
 nav {
   padding-right: 1rem;
-  left: 55rem;
-
+  left: 50rem;
+  top: 1rem;
 }
 
 nav ul{
@@ -46,6 +46,9 @@ nav a:hover::after{
   transform: translate(-0%, -20%);
 }
 
+.ellipse{
+  width: 60rem;
+}
 
 
 
