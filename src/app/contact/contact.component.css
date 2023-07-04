@@ -1,0 +1,144 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact{
+  top: -4.375rem;
+  position: relative;
+  width: 100%;
+  padding: 3rem 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact .content{
+  text-align: center;
+}
+
+.contact .content h2{
+  font-size: 3rem;
+  font-weight: 600;
+  color: #654321;
+}
+
+.contact .content p{
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: #654321;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
+
+.container .contactInfo{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .contactInfo .box{
+  position: relative;
+  padding: 1.25rem 0;
+  display: flex;
+}
+
+.container .contactInfo .box .text{
+
+  display: flex;
+  margin-left: 1.25rem;
+  font-size: 1rem;
+  color: #654321;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.container .contactInfo .box .text h3{
+  font-weight: 500;
+  color: #654321;
+}
+
+.contactForm h2{
+  font-size: 1.8rem;
+  color: #654321;
+  font-weight: 500;
+}
+
+.contactForm .inputBox{
+  position: relative;
+  width: 100%;
+  margin-top: 0.19rem;
+}
+
+.contactForm .inputBox input,.contactForm .inputBox textarea
+{
+  width: 100%;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  margin: 0.6rem 0;
+  border: none;
+  border-bottom: 0.125rem solid #654321;
+  outline: none;
+  resize: none;
+}
+
+
+.contactForm .inputBox span{
+  position: absolute;
+  left:0;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  margin: 0.6rem 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #654321;
+}
+
+
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span{
+    color: #A8E4B8;
+  font-size: 0.75rem;
+  transform: translateY(-1.25rem);
+}
+
+.contactForm .inputBox input[type = "submit"]{
+  width: 7rem;
+  background: #FEE8D0;
+  color: #654321;
+  border:none;
+  cursor:pointer;
+  padding: 0.625rem;
+  font-size: 1.125rem;
+}
+
+
+@media(max-width: 62rem){
+  .contact{
+    padding:3.125rem ;
+  }
+
+  .container{
+    flex-direction: column;
+  }
+
+  .container .contactInfo{
+    margin-bottom: 2.5rem;
+  }
+  .container .contactInfo,contactForm{
+    width: 100%;
+  }
+
+}
