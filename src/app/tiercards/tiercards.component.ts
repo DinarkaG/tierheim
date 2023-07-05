@@ -41,14 +41,15 @@ export class TiercardsComponent {
     this.tierbeschreibung = 'beschreibung';
   }
 
-  openPopup(name: string, alter: string, krankheit: string, beschreibung: string, geschlecht: string, rasse: string) {
+  openPopup(name: string, rasse: string, alter: string, geschlecht: string, krankheit: string, beschreibung: string) {
     const modalRef = this.modalService.open(PopupComponent);
     modalRef.componentInstance.name = name;
+    modalRef.componentInstance.rasse = rasse;
     modalRef.componentInstance.alter = alter;
+    modalRef.componentInstance.geschlecht = geschlecht;
     modalRef.componentInstance.krankheit = krankheit;
     modalRef.componentInstance.beschreibung = beschreibung;
-    modalRef.componentInstance.geschlecht = geschlecht;
-    modalRef.componentInstance.rasse = rasse;
+
   }
 
 }

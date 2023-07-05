@@ -20,7 +20,8 @@ export class PopupComponent {
     this.alter = 'alter';
     this.krankheit = 'krankheit';
     this.beschreibung = 'beschreibung';
-    this.geschlecht = 'geschlecht';
     this.rasse = 'rasse';
+    this.geschlecht = 'geschlecht';
+
   }
 }
