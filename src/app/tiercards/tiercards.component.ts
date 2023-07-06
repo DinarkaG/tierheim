@@ -35,7 +35,6 @@ export class TiercardsComponent {
     this.tiername = 'name';
     this.tieralter = 'tier alter';
     this.tierkrankheit = 'krankheit';
-    this.tieralter = 'tier alter';
     this.tiergeschlecht = 'geschlecht';
     this.tierrasse = 'rasse';
     this.tierbeschreibung = 'beschreibung';
