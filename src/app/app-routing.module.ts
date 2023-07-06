@@ -11,7 +11,7 @@ import {CardComponent} from "./card/card.component";
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'home', component:HomeComponent },
+  {path: '', component:HomeComponent },
   {path: 'vermittlung', component: VermittlungComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'spenden', component: SpendenComponent},
