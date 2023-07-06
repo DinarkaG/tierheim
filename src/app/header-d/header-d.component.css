@@ -49,7 +49,11 @@ nav a:hover::after{
   width: 60rem;
 }
 
+.logo{
+  width: 7rem;
 
-
+  margin-top: -9rem;
+  margin-left: 1rem;
+}
 
 

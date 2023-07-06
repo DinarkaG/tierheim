@@ -90,3 +90,17 @@ a{
   width: 20px; /* Passe die Größe des Icons nach Bedarf an */
   height: 20px; /* Passe die Größe des Icons nach Bedarf an */
 }
+
+.login{
+  border: 2.0px solid #555555;
+  text-decoration: none;
+  padding: 0.5rem 0.6rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+  margin-top: 0.6rem;
+}
+
+.login:hover,
+.login:active {
+  font-size: 1.2rem;
+}
