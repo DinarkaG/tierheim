@@ -15,6 +15,7 @@ export class HundService {
         map((data: any[]) => {
           return data.map(tier => {
             return {
+              kurzbeschreibung: tier.kurzbeschreibung,
               tierbild: tier.tierbild,
               tiername: tier.tiername,
               tierbeschreibung: tier.tierbeschreibung,
