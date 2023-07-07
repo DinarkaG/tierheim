@@ -1,22 +1,22 @@
-import {Component, Input} from '@angular/core';
-
+import {Component, Input, OnInit} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {PopupComponent} from "../popup/popup.component";
-
+import { TierService } from "../tier.service";
 
 @Component({
   selector: 'app-tiercards',
   templateUrl: './tiercards.component.html',
   styleUrls: ['./tiercards.component.css']
 })
-export class TiercardsComponent {
+export class TiercardsComponent implements OnInit{
+  @Input() tier: any;
 
   @Input() name: string;
   @Input() beschreibung: string;
   @Input() bild: string;
-  @Input() groesse: string;
-  @Input() textinhalt: string;
 
+  @Input() textinhalt: string;
+  @Input() groesse: string;
   @Input() tiername: string;
   @Input() tierrasse: string;
   @Input() tiergeschlecht: string;
@@ -25,19 +25,29 @@ export class TiercardsComponent {
   @Input() tierbeschreibung: string;
 
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private tierService: TierService) {
     this.name = 'Tier name';
     this.beschreibung = 'Tier Info';
     this.bild = 'path/to/default-image.jpg';
-    this.groesse = 'bildgroesse';
     this.textinhalt = 'textinhalt';
-
+    this.groesse = 'groesse';
     this.tiername = 'name';
     this.tieralter = 'tier alter';
     this.tierkrankheit = 'krankheit';
     this.tiergeschlecht = 'geschlecht';
     this.tierrasse = 'rasse';
     this.tierbeschreibung = 'beschreibung';
+  }
+
+  ngOnInit() {
+    this.tierService.getTiers().subscribe(
+      (data) => {
+        this.tier = data;
+      },
+      (error) => {
+        console.error('Error retrieving tier data:', error);
+      }
+    );
   }
 
   openPopup(name: string, rasse: string, alter: string, geschlecht: string, krankheit: string, beschreibung: string) {

@@ -5,8 +5,17 @@
 </div>
 
 <div class="kleintierliste">
-  <app-tiercards class = "card" [name]="'Cemal'" [beschreibung]="'Wellensittich. 2 Jahre'" [groesse]="'210'" [bild] = "'assets/images/Kleintier1.png'"     [tiername]="'Cemal'" [tierrasse]="'Wellensittich'" [tiergeschlecht]="'männlich'" [tieralter]="'2 Jahre'" [tierkrankheit]="'fett'" [tierbeschreibung]="'Cemal ist ein 2 Jahre alter übergewichtiger Wellensittich, der eine Partnerin sucht. Er ist sehr narzistisch und begutachtet sich gerne selbst. Vorsicht, er beist und fliegt auf Köpfe.'"></app-tiercards>
-  <app-tiercards class = "card" [name]="'Nugget'" [beschreibung]="'Henne. 3 Jahre'" [groesse]="'210'" [bild] = "'assets/images/Kleintier2.png'"     [tiername]="'Nugget'" [tierrasse]="'Huhn'" [tiergeschlecht]="'weiblich'" [tieralter]="'3 Jahre'" [tierkrankheit]="'hinkt'" [tierbeschreibung]="'Nugget ist ein 3 Jahr altes Huhn. Bitte nur an Haushalte mit mehreren Hühnern.'"></app-tiercards>
-  <app-tiercards class = "card" [name]="'Benjamin'" [beschreibung]="'Kaninchen. 3 Jahre'" [groesse]="'210'" [bild] = "'assets/images/Kleintier3.png'"     [tiername]="'Benjamin'" [tierrasse]="'Kaninchen'" [tiergeschlecht]="'männlich'" [tieralter]="'3 Jahre'" [tierkrankheit]="'lahmes Bein'" [tierbeschreibung]="'Benjamin ist ein junges Kaninchen, das in ein Zuhause mit Partner abgegeben wird.'"></app-tiercards>
-  <app-tiercards class = "card" [name]="'Lily'" [beschreibung]="'Kaninchen. 3 Jahre'" [groesse]="'210'" [bild] = "'assets/images/Kleintier4.png'"     [tiername]="'Lily'" [tierrasse]="'Kaninchen'" [tiergeschlecht]="'weiblich'" [tieralter]="'3 Monate'" [tierkrankheit]="'keine'" [tierbeschreibung]="'Lily wurde einzeln eingeliefert und sucht ein Zuhause mit mindestens einem Partner oder Benjamin als Spielgefährten.'"></app-tiercards>
+  <app-tiercards class="card" *ngFor="let tier of kleintierData"
+                 [name]="tier.tiername"
+                 [beschreibung]="tier.tierbeschreibung"
+                 [groesse]="tier.groesse"
+                 [bild]="tier.tierbild"
+                 [tiername]="tier.tiername"
+                 [tierrasse]="tier.tierrasse"
+                 [tiergeschlecht]="tier.tiergeschlecht"
+                 [tieralter]="tier.tieralter"
+                 [tierkrankheit]="tier.tierkrankheit"
+                 [tierbeschreibung]="tier.tierbeschreibung"
+
+  ></app-tiercards>
 </div>
