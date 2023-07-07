@@ -3,6 +3,7 @@
   text-align: center;
   font-family: Arial;
   display: flex;
+  justify-content: center;
 }
 .zahl{
   font-size: 6.25rem;
@@ -17,11 +18,10 @@
 .eins{
   border-radius: 10px;
   background: #A8E4B8;
-  height: 12.5rem;
-  width: 10em;
-  margin-right: 3em;
-  margin-left: 3em;
-  margin-top: 1em;
+  height: 10rem;
+  width: 80rem;
+  text-align: center;
+
 }
 
 

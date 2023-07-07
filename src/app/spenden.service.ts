@@ -13,4 +13,5 @@ export class SpendenService {
   getSpendenSum() {
     return this.http.get<{ sum: number }>(this.apiUrl);
   }
+
 }
