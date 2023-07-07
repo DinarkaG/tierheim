@@ -17,14 +17,16 @@
     <!-- NEWSLETTER BLOCK -->
     <div class="innen">
       <p class="uberschrift"> NEWSLETTER</p>
-      <form action="form.php" method="post">
-      <textarea class="text"
-                name="textarea"
-                rows="2"
-                cols="50"
-                placeholder="Deine E-Mailadrese: max@mustermann.de"></textarea>
+      <form  action = "form.php" method = "post">
+    <textarea class="text"
+              name="email"
+              rows="2"
+              cols="50"
+              #emailInput
+              placeholder="Deine E-Mailadrese: max@mustermann.de"
+              required></textarea>
+        <button (click) ="addtoEmail(emailInput.value)" class="abbonieren" type="submit">Abonnieren</button>
       </form>
-      <button class="abbonieren">Abbonieren</button>
     </div>
 
     <!--KONTAKT BLOCK*-->
