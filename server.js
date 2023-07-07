@@ -120,6 +120,27 @@ app.get('/api/spendenSum', (req, res) => {
   });
 });
 
+
+// Newsletter Datenbank
+app.post('/api/addEmail', (req, res) => {
+  const { email } = req.body; // Assuming the button click sends the 'wert' value in the request body
+
+  // Insert the 'wert' value into the 'spenden' table
+  const query = 'INSERT INTO newsletter (email) VALUES (?)';
+  connection.query(query, [email], (error, results) => {
+    if (error) {
+      console.error('Error inserting data:', error);
+      res.status(500).json({ message: 'Error inserting data' });
+    } else {
+      console.log('Data inserted successfully');
+      res.status(200).json({ message: 'Data inserted successfully' });
+    }
+  });
+});
+
+
+///}
+
 // listen (start app with node server.js) ======================================
 app.listen(8080, function () {
   console.log('App listening on port 8080');
@@ -130,3 +151,6 @@ app.get('/', function (req, res) {
   //res.send("Hello World123");
   res.sendFile('index.html', { root: __dirname + '/dist/tierheim' }); // TODO rename to your app-name
 });
+
+
+
