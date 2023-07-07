@@ -77,6 +77,22 @@ app.get('/api/kleintier', (req, res) => {
   });
 });
 
+app.post('/api/addSpenden', (req, res) => {
+  const { wert } = req.body; // Assuming the button click sends the 'wert' value in the request body
+
+  // Insert the 'wert' value into the 'spenden' table
+  const query = 'INSERT INTO spende (wert) VALUES (?)';
+  connection.query(query, [wert], (error, results) => {
+    if (error) {
+      console.error('Error inserting data:', error);
+      res.status(500).json({ message: 'Error inserting data' });
+    } else {
+      console.log('Data inserted successfully');
+      res.status(200).json({ message: 'Data inserted successfully' });
+    }
+  });
+});
+
 // Define an API endpoint for fetching admins
 app.get('/api/admin', (req, res) => {
   // Perform the database query
@@ -86,6 +102,20 @@ app.get('/api/admin', (req, res) => {
     } else {
       console.log('Retrieved data from the "admin" table: ', results);
       res.json(results);
+    }
+  });
+});
+
+app.get('/api/spendenSum', (req, res) => {
+  const query = 'SELECT SUM(wert) AS sum FROM spende';
+
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Error retrieving data:', error);
+      res.status(500).json({ message: 'Error retrieving data' });
+    } else {
+      const sum = results[0].sum || 0;
+      res.status(200).json({ sum });
     }
   });
 });
