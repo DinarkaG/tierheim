@@ -51,4 +51,10 @@ export class LoginService {
     const url = '/api/tierp';
     return this.http.post(url, newTier);
   }
+
+  deleteTier(tierId: number) {
+    const url = `/api/tierd/${tierId}`;
+    return this.http.delete(url);
+  }
+
 }

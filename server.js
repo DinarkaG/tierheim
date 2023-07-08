@@ -85,6 +85,20 @@ app.put('/api/tier/:tierId', (req, res) => {
   });
 });
 
+app.delete('/api/tierd/:tierId', (req, res) => {
+  const tierId = req.params.tierId;
+
+  // Delete the tier with the specified ID from the tier table
+  const query = 'DELETE FROM tier WHERE tier_id = ?';
+  connection.query(query, [tierId], (err, result) => {
+    if (err) {
+      console.error('Error executing MySQL query:', err);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
 // Define an API endpoint for fetching users
 app.get('/api/katze', (req, res) => {
   // Perform the database query

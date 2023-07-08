@@ -36,6 +36,7 @@ export class SpendenComponent implements OnInit{
     this.http.post(url, body).subscribe(
       (response) => {
         console.log('Data added successfully');
+        this.getSpendenSum();
       },
       (error) => {
         console.error('Error adding data:', error);

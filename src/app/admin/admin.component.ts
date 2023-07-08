@@ -46,14 +46,29 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  getTierData() {
-    this.loginService.getTierData().subscribe(
+  deleteTier(tier: any) {
+    const tierId = tier.tier_id;
+    this.loginService.deleteTier(tierId).subscribe(
       (response: any) => {
-        this.tierData = response.data; // Assuming the API response contains the tier data in a 'data' property
+        console.log('Tier deleted successfully');
+        // Optionally, update the tier data after successful deletion
+        this.getTierData();
       },
       error => {
-        console.error('Error retrieving tier data:', error);
+        console.error('Error deleting tier:', error);
         // Handle the error
+      }
+    );
+  }
+
+  getTierData() {
+
+    this.loginService.getTiers().subscribe(
+      (data) => {
+        this.tierData = data;
+      },
+      (error) => {
+        console.error('Error retrieving tier data:', error);
       }
     );
   }
