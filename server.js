@@ -152,7 +152,20 @@ app.post('/api/addSpenden', (req, res) => {
   });
 });
 
-// Define an API endpoint for fetching admins
+app.delete('/api/changeSpenden', (req, res) => {
+  /*const {spendenwert} = req.query;*/
+
+  const query = 'DELETE FROM spende WHERE rechnungsnummer > 0';
+
+  connection.query(query,(error, results) => {
+    if (error) {
+      res.status(500).json({ error: error.message });
+    } else {
+      res.json({ message: 'Spenden erfolgreich gelöscht' });
+    }
+  });
+}); // Define an API endpoint for fetching admins
+
 app.get('/api/admin', (req, res) => {
   // Perform the database query
   pool.query('SELECT * FROM admin', (error, results) => {

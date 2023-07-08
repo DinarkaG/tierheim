@@ -1,41 +1,41 @@
 <div>
-  <h2>Add New Tier</h2>
+  <div class = "banner">Funktionen, um ein neues Tier in die Datenbank einzufügen</div>
   <form (submit)="addTier()">
     <div>
-      <label for="tabelletiername">Tier Name:</label>
+      <label for="tabelletiername">Name:</label>
       <input type="text" id="tabelletiername" name="tabelletiername" [(ngModel)]="tabelletiername" required>
     </div>
     <div>
-      <label for="tabellekurzbeschreibung">Tier Kurzbeschreibung:</label>
+      <label for="tabellekurzbeschreibung">Kurzbeschreibung:</label>
       <input type="text" id="tabellekurzbeschreibung" name="tabellekurzbeschreibung" [(ngModel)]="tabellekurzbeschreibung" required>
     </div>
     <div>
-      <label for="tabellebild">Tier Beschreibung:</label>
+      <label for="tabellebild">Beschreibung:</label>
       <input type="text" id="tabellebild" name="tabellebild" [(ngModel)]="tabellebild" required>
     </div>
       <div>
-        <label for="tabelletierrasse">Tier Rasse:</label>
+        <label for="tabelletierrasse">Rasse:</label>
         <input type="text" id="tabelletierrasse" name="tabelletierrasse" [(ngModel)]="tabelletierrasse" required>
       </div>
 
       <div>
-        <label for="tabelletiergeschlecht">Tier Geschlecht:</label>
+        <label for="tabelletiergeschlecht">Geschlecht:</label>
         <input type="text" id="tabelletiergeschlecht" name="tabelletiergeschlecht" [(ngModel)]="tabelletiergeschlecht" required>
       </div>
       <div>
-        <label for="tabelletieralter">Tier Alter:</label>
+        <label for="tabelletieralter">Alter:</label>
         <input type="text" id="tabelletieralter" name="tabelletieralter" [(ngModel)]="tabelletieralter" required>
       </div>
       <div>
-        <label for="tabelletierart">Tier Art:</label>
+        <label for="tabelletierart">Art:</label>
         <input type="text" id="tabelletierart" name="tabelletierart" [(ngModel)]="tabelletierart" required>
       </div>
       <div>
-        <label for="tabelletierkrankheit">Tier Krankheit:</label>
+        <label for="tabelletierkrankheit">Krankheit:</label>
         <input type="text" id="tabelletierkrankheit" name="tabelletierkrankheit" [(ngModel)]="tabelletierkrankheit" required>
       </div>
       <div>
-        <label for="tabelletierbeschreibung">Tier Beschreibung:</label>
+        <label for="tabelletierbeschreibung">Beschreibung:</label>
         <input type="text" id="tabelletierbeschreibung" name="tabelletierbeschreibung" [(ngModel)]="tabelletierbeschreibung" required>
       </div>
     <button type="submit">Add</button>
@@ -76,4 +76,13 @@
   </tr>
   </tbody>
 </table>
+
+  <div class="banner">
+Funktionen für die Veränderung des Spendenstatus:
+  </div>
+
+  <div>
+  <button (click)="changeSpenden(0)" class="spenden-button">Stell den Spendenstand auf 0 Euro</button>
+</div>
+
 </div>

@@ -43,4 +43,19 @@ export class SpendenComponent implements OnInit{
       }
     );
   }
+
+
+  changeSpenden(spendenwert: number) {
+    const url = '/api/changeSpenden'; // Replace with your actual server-side endpoint URL
+    /*const body = { spendenwert };*/
+    this.http.delete(url).subscribe(
+      (response) => {
+        console.log('Data deleted successfully');
+        this.getSpendenSum();
+      },
+      (error) => {
+        console.error('Error deleting data:', error);
+      }
+    );
+  }
 }

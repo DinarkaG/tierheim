@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginService} from "../login.service";
+import {SpendenService} from "../spenden.service";
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -20,9 +22,12 @@ export class AdminComponent implements OnInit {
   tabelletierkrankheit: string;
   tabelletierbeschreibung: string;
 
-  tierData: any[] = [];
 
-  constructor(private loginService: LoginService) {
+  tierData: any[] = [];
+  spendenSum: number = 0;
+
+
+  constructor(private loginService: LoginService, private http: HttpClient, private spendenService: SpendenService) {
     this.tabellebild = 'path/to/default-image.jpg';
     this.tabellekurzbeschreibung = 'textinhalt';
     this.tabelletiername = 'name';
@@ -36,6 +41,8 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSpendenSum();
+
     this.loginService.getTiers().subscribe(
       (data) => {
         this.tierData = data;
@@ -121,4 +128,30 @@ export class AdminComponent implements OnInit {
       }
     );
   }
+  getSpendenSum() {
+    this.spendenService.getSpendenSum().subscribe(
+      (response) => {
+        this.spendenSum = response.sum;
+      },
+      (error) => {
+        console.error('Error retrieving sum:', error);
+      }
+    );
+  }
+
+
+  changeSpenden(spendenwert: number) {
+    const url = '/api/changeSpenden'; // Replace with your actual server-side endpoint URL
+    /*const body = { spendenwert };*/
+    this.http.delete(url).subscribe(
+      (response) => {
+        console.log('Data deleted successfully');
+        this.getSpendenSum();
+      },
+      (error) => {
+        console.error('Error deleting data:', error);
+      }
+    );
+  }
+
 }
