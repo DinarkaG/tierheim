@@ -63,7 +63,7 @@ export class AdminComponent implements OnInit {
       (response: any) => {
         console.log('Changes submitted successfully');
         // Optionally, update the tier data after successful submission
-        //this.getTierData();
+        this.getTierData();
       },
       error => {
         console.error('Error submitting changes:', error);
@@ -89,16 +89,16 @@ export class AdminComponent implements OnInit {
       (response: any) => {
         console.log('New tier added successfully');
         // Optionally, update the tier data after successful addition
-        //this.getTierData();
-        this.tabellebild = 'path/to/default-image.jpg';
-        this.tabellekurzbeschreibung = 'textinhalt';
-        this.tabelletiername = 'name';
-        this.tabelletieralter = 'tier alter';
-        this.tabelletierart = 'tier art';
-        this.tabelletierkrankheit = 'krankheit';
-        this.tabelletiergeschlecht = 'geschlecht';
-        this.tabelletierrasse = 'rasse';
-        this.tabelletierbeschreibung = 'beschreibung';
+        this.getTierData();
+        this.tabellebild = '';
+        this.tabellekurzbeschreibung = '';
+        this.tabelletiername = '';
+        this.tabelletieralter = '';
+        this.tabelletierart = '';
+        this.tabelletierkrankheit = '';
+        this.tabelletiergeschlecht = '';
+        this.tabelletierrasse = '';
+        this.tabelletierbeschreibung = '';
       },
       error => {
         console.error('Error adding tier:', error);
