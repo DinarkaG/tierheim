@@ -21,6 +21,7 @@ import { KatzeComponent } from './katze/katze.component';
 import { KleintierComponent } from './kleintier/kleintier.component';
 import { PopupComponent } from './popup/popup.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LoginComponent } from './login/login.component';
     KatzeComponent,
     KleintierComponent,
     PopupComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

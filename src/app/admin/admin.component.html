@@ -1,0 +1,78 @@
+<div>
+  <h2>Add New Tier</h2>
+  <form (submit)="addTier()">
+    <div>
+      <label for="tabelletiername">Tier Name:</label>
+      <input type="text" id="tabelletiername" name="tabelletiername" [(ngModel)]="tabelletiername" required>
+    </div>
+    <div>
+      <label for="tabellekurzbeschreibung">Tier Kurzbeschreibung:</label>
+      <input type="text" id="tabellekurzbeschreibung" name="tabellekurzbeschreibung" [(ngModel)]="tabellekurzbeschreibung" required>
+    </div>
+    <div>
+      <label for="tabellebild">Tier Description:</label>
+      <input type="text" id="tabellebild" name="tabellebild" [(ngModel)]="tabellebild" required>
+    </div>
+      <div>
+        <label for="tabelletierrasse">Tier Rasse:</label>
+        <input type="text" id="tabelletierrasse" name="tabelletierrasse" [(ngModel)]="tabelletierrasse" required>
+      </div>
+
+      <div>
+        <label for="tabelletiergeschlecht">Tier Geschlecht:</label>
+        <input type="text" id="tabelletiergeschlecht" name="tabelletiergeschlecht" [(ngModel)]="tabelletiergeschlecht" required>
+      </div>
+      <div>
+        <label for="tabelletieralter">Tier Alter:</label>
+        <input type="text" id="tabelletieralter" name="tabelletieralter" [(ngModel)]="tabelletieralter" required>
+      </div>
+      <div>
+        <label for="tabelletierart">Tier Art:</label>
+        <input type="text" id="tabelletierart" name="tabelletierart" [(ngModel)]="tabelletierart" required>
+      </div>
+      <div>
+        <label for="tabelletierkrankheit">Tier Krankheit:</label>
+        <input type="text" id="tabelletierkrankheit" name="tabelletierkrankheit" [(ngModel)]="tabelletierkrankheit" required>
+      </div>
+      <div>
+        <label for="tabelletierbeschreibung">Tier Beschreibung:</label>
+        <input type="text" id="tabelletierbeschreibung" name="tabelletierbeschreibung" [(ngModel)]="tabelletierbeschreibung" required>
+      </div>
+    <button type="submit">Add</button>
+  </form>
+</div>
+<div>
+<table>
+  <thead>
+  <tr>
+    <th>Tier ID</th>
+    <th>Tier Name</th>
+    <th>Tier Kurzbeschreibung</th>
+    <th>Tier Bildpfad</th>
+    <th>Tier Rasse</th>
+    <th>Tier Geschlecht</th>
+    <th>Tier Alter</th>
+    <th>Tier Art</th>
+    <th>Tier Krankheit</th>
+    <th>Tier Beschreibung</th>
+
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tier of tierData">
+    <td>{{ tier.tier_id }}</td>
+    <td><input [(ngModel)]="tier.tiername"></td>
+    <td><input [(ngModel)]="tier.kurzbeschreibung"></td>
+    <td><input [(ngModel)]="tier.tierbild"></td>
+    <td><input [(ngModel)]="tier.tierrasse"></td>
+    <td><input [(ngModel)]="tier.tiergeschlecht"></td>
+    <td><input [(ngModel)]="tier.tieralter"></td>
+    <td><input [(ngModel)]="tier.tierart"></td>
+    <td><input [(ngModel)]="tier.tierkrankheit"></td>
+    <td><input [(ngModel)]="tier.tierbeschreibung"></td>
+    <td><button (click)="submitChanges(tier)">Submit</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

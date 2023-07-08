@@ -9,6 +9,7 @@ import {HundComponent} from "./hund/hund.component";
 import {KleintierComponent} from "./kleintier/kleintier.component";
 import {CardComponent} from "./card/card.component";
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component'; // Replace 'AdminComponent' with the actual component for your admin page
 
 const routes: Routes = [
   {path: '', component:HomeComponent },
@@ -19,8 +20,8 @@ const routes: Routes = [
   {path: 'hund', component: HundComponent},
   {path: 'kleintier', component: KleintierComponent},
   {path: 'card', component: CardComponent},
-  {path: 'login', component: LoginComponent}
-
+  {path: 'login', component: LoginComponent},
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({

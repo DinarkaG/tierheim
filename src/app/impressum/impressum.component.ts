@@ -17,7 +17,7 @@ export class ImpressumComponent implements OnInit {
   ngOnInit() {
   }
   addtoEmail(email: string) {
-    const url = '/api/addemail';
+    const url = '/api/addEmail';
     const body = { email };
 
     this.http.post(url, body).subscribe(

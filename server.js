@@ -40,6 +40,51 @@ const pool = mysql.createPool({
   database: 'tierheim',
 });
 
+app.get('/api/tierg', (req, res) => {
+  // Query the tier table to fetch all tier data
+  const query = 'SELECT * FROM tier';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing MySQL query:', err);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.post('/api/tierp', (req, res) => {
+  const newTier = req.body;
+
+  // Insert the new tier data into the tier table
+  const query = 'INSERT INTO tier SET ?';
+  connection.query(query, newTier, (err, result) => {
+    if (err) {
+      console.error('Error executing MySQL query:', err);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      const insertedTierId = result.insertId;
+      res.json({ success: true, tierId: insertedTierId });
+    }
+  });
+});
+
+app.put('/api/tier/:tierId', (req, res) => {
+  const tierId = req.params.tierId;
+  const updatedTier = req.body;
+
+  // Update the tier data in the tier table
+  const query = 'UPDATE tier SET ? WHERE tier_id = ?';
+  connection.query(query, [updatedTier, tierId], (err, result) => {
+    if (err) {
+      console.error('Error executing MySQL query:', err);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
+
 // Define an API endpoint for fetching users
 app.get('/api/katze', (req, res) => {
   // Perform the database query
@@ -138,8 +183,28 @@ app.post('/api/addEmail', (req, res) => {
   });
 });
 
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
 
-///}
+  // Query the admin table to check if the username and password match
+  const query = 'SELECT admin_id FROM admin WHERE benutzername = ? AND passwort = ?';
+  connection.query(query, [username, password], (err, results) => {
+    if (err) {
+      console.error('Error executing MySQL query:', err);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      if (results.length > 0) {
+        const adminId = results[0].admin_id; // Retrieve the admin's admin_id from the query result
+        // Login successful, return the admin's admin_id
+        res.json({ success: true, adminId });
+      } else {
+        // Invalid username or password
+        res.status(401).json({ error: 'Invalid username or password' });
+      }
+    }
+  });
+});
+
 
 // listen (start app with node server.js) ======================================
 app.listen(8080, function () {
