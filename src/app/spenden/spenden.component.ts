@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {SpendenService} from '../spenden.service';
+import {PopupSpendeComponent} from "../popup-spende/popup-spende.component";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,7 +13,7 @@ import {SpendenService} from '../spenden.service';
 })
 export class SpendenComponent implements OnInit{
   spendenSum: number = 0;
-  constructor(private http: HttpClient, private spendenService: SpendenService) {}
+  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.getSpendenSum();
@@ -57,5 +59,10 @@ export class SpendenComponent implements OnInit{
         console.error('Error deleting data:', error);
       }
     );
+  }
+
+  openPopupSpende() {
+    const modalRef = this.modalService.open(PopupSpendeComponent);
+
   }
 }
