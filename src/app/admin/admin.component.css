@@ -4,6 +4,21 @@ body {
   padding: 0;
 }
 
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  flex: 1;
+  background-color: #C6E2FF;
+  color: #104E8B;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -70,10 +85,10 @@ tbody tr:nth-child(even) {
 }
 
 
-  button[type="submit"],
-  button[type="button"] {
-    padding: 8px 16px;
-  }
+button[type="submit"],
+button[type="button"] {
+  padding: 8px 16px;
+}
 
 .spenden-button {
   margin: 20px auto;
@@ -83,6 +98,7 @@ tbody tr:nth-child(even) {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 3rem;
 }
 
 .spenden-button:hover {
@@ -94,6 +110,18 @@ tbody tr:nth-child(even) {
   color: #104E8B;
   padding: 10px;
   margin-bottom: 20px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.spenden-funktionen{
+  margin-top: 2rem;
 }
 
 /* Responsives Design */
@@ -111,5 +139,21 @@ tbody tr:nth-child(even) {
   button[type="button"],
   .spenden-button {
     padding: 8px 16px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-button {
+    flex: 1;
+  }
+  body {
+    overflow-x: hidden;
+  }
+
+  .table-container {
+    overflow-x: auto;
   }
 }
