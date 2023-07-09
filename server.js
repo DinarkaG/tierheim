@@ -232,6 +232,22 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+app.post('/api/contact', (req, res) => {
+  const { name, email, nachricht } = req.body;
+
+  const query = 'INSERT INTO kontakt (name, email, nachricht) VALUES (?, ?, ?)';
+
+  connection.query(query, [name, email, nachricht], (error, results) => {
+    if (error) {
+      console.error('Error saving message to database:', error);
+      res.status(500).json({ message: 'Error saving message to database' });
+    } else {
+      res.status(200).json({ message: 'Message saved to database' });
+    }
+  });
+});
+
+
 
 // listen (start app with node server.js) ======================================
 app.listen(8080, function () {

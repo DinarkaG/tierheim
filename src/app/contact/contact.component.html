@@ -52,25 +52,39 @@
         <h2>Send Message</h2>
 
 
-        <div class = "inputBox">
-          <input type = "text" name = "" required = "required">
+        <!--    <div class = "inputBox">
+             <input type = "text" name = "" required = "required">
+             <span>Name</span>
+           </div> -->
+
+        <div class="inputBox">
+          <input type="text" name="name" required [(ngModel)]="name">
           <span>Name</span>
         </div>
 
-        <div class = "inputBox">
-          <input type = "text" name = "" required = "required">
+       <!--     <div class = "inputBox">
+             <input type = "text" name = "" required = "required">
+             <span>Email</span>
+           </div> -->
+
+        <div class="inputBox">
+          <input type="text" name="email" required [(ngModel)]="email">
           <span>Email</span>
         </div>
 
-        <div class = "inputBox">
-          <textarea required = "required"></textarea>
+       <!--    <div class = "inputBox">
+             <textarea required = "required"></textarea>
+             <span>Schreiben Sie Nachricht...</span>
+           </div> -->
+
+        <div class="inputBox">
+          <textarea name="nachricht" required [(ngModel)]="nachricht"></textarea>
           <span>Schreiben Sie Nachricht...</span>
         </div>
 
-        <div class = "inputBox">
-          <input type = "submit" name = "" value = "Abschicken">
+        <div class="inputBox">
+          <input type="submit" value="Abschicken" (click)="sendMessage()">
         </div>
-
 
       </form>
 
