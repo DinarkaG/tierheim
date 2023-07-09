@@ -8,7 +8,5 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PopupNewsletterComponent {
 
-  constructor(public modal: NgbActiveModal) {
-
-  }
+  constructor(public modal: NgbActiveModal) {}
 }

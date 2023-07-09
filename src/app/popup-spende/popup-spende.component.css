@@ -1,18 +1,18 @@
-.modal-header1{
+.modal-header2{
   color: #faa560;
-
 }
-.hintergrund1{
+
+.modal-body2{
+  text-align: center;
+}
+
+.hintergrund2{
   background-color: #eaf6fc;
   border-radius: 3px;
 }
 
-.btn2{
+.btn3{
   background-color: #faa560;
   border-color: transparent;
   margin-left: 14rem;
-}
-
-.modal-body1{
-  text-align: center;
 }
