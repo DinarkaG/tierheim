@@ -22,6 +22,7 @@ import { KleintierComponent } from './kleintier/kleintier.component';
 import { PopupComponent } from './popup/popup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { PopupNewsletterComponent } from './popup-newsletter/popup-newsletter.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminComponent } from './admin/admin.component';
     KleintierComponent,
     PopupComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    PopupNewsletterComponent
   ],
   imports: [
     BrowserModule,
