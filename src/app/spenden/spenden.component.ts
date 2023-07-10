@@ -1,7 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {SpendenService} from '../spenden.service';
-import {PopupSpendeComponent} from "../popup-spende/popup-spende.component";
+import { SpendenService } from '../spenden.service';
+import { PopupSpendeComponent } from "../popup-spende/popup-spende.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,25 +10,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./spenden.component.css'],
   providers: [SpendenService]
 })
-export class SpendenComponent implements OnInit{
+export class SpendenComponent implements OnInit, OnDestroy {
   spendenSum: number = 0;
-  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {
 
-  }
+  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {}
 
   ngOnInit() {
-    this.getSpendenSum();
+    this.spendenService.connect();
+    this.spendenService.getSpendenSum().subscribe(data => {
+      this.spendenSum = data.sum;
+    });
+
+    this.spendenService.onUpdate().subscribe(data => {
+      this.spendenSum = data.spendenSum;
+    });
   }
 
-  getSpendenSum() {
-    this.spendenService.getSpendenSum().subscribe(
-      (response) => {
-        this.spendenSum = response.sum;
-      },
-      (error) => {
-        console.error('Error retrieving sum:', error);
-      }
-    );
+  ngOnDestroy() {
+    this.spendenService.disconnect();
   }
 
   addToSpenden(wert: number) {
@@ -38,23 +37,12 @@ export class SpendenComponent implements OnInit{
     this.http.post(url, body).subscribe(
       (response) => {
         console.log('Data added successfully');
-        this.getSpendenSum();
+        this.spendenService.getSpendenSum().subscribe(data => {
+          this.spendenSum = data.sum;
+        });
       },
       (error) => {
         console.error('Error adding data:', error);
-      }
-    );
-  }
-
-  changeSpenden(spendenwert: number) {
-    const url = '/api/changeSpenden';
-    this.http.delete(url).subscribe(
-      (response) => {
-        console.log('Data deleted successfully');
-        this.getSpendenSum();
-      },
-      (error) => {
-        console.error('Error deleting data:', error);
       }
     );
   }
@@ -63,3 +51,4 @@ export class SpendenComponent implements OnInit{
     const modalRef = this.modalService.open(PopupSpendeComponent);
   }
 }
+
