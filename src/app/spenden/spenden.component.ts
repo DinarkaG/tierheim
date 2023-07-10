@@ -12,7 +12,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SpendenComponent implements OnInit{
   spendenSum: number = 0;
-  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {}
+  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {
+
+  }
 
   ngOnInit() {
     this.getSpendenSum();
