@@ -40,6 +40,7 @@
     </div>
     <button class="spenden-button" type="submit">Add</button>
   </form>
+  <div class = "banner">Tiere</div>
   <div class="table-container">
     <table>
       <thead>
@@ -79,9 +80,46 @@
       </tbody>
     </table>
   </div>
+  <div class = "banner">Kontakte</div>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Nachricht</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let kontakt of kontaktData">
+        <td>{{ kontakt.name }}</td>
+        <td>{{ kontakt.email }}</td>
+        <td>{{ kontakt.nachricht }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class = "banner">Newsletter Abonnenten</div>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>Newsletter ID</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let newsletter of newsletterData">
+        <td>{{ newsletter.newsletter_id }}</td>
+        <td>{{ newsletter.email }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="spenden-funktionen">
     <div class="banner">
-      Funktionen für die Veränderung des Spendenstatus:
+      Funktionen für die Veränderung des Spendenstatus
     </div>
 
     <div>

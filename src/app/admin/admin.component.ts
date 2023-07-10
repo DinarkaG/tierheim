@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginService} from "../login.service";
 import {SpendenService} from "../spenden.service";
+import {KontaktService} from "../kontakt.service";
+import {NewsletterService} from "../newsletter.service";
 import { HttpClient } from '@angular/common/http';
 
 
@@ -22,9 +24,11 @@ export class AdminComponent implements OnInit {
   tabelletierbeschreibung: string;
 
   tierData: any[] = [];
+  kontaktData: any[] = [];
+  newsletterData: any[] = [];
   spendenSum: number = 0;
 
-  constructor(private loginService: LoginService, private http: HttpClient, private spendenService: SpendenService) {
+  constructor(private loginService: LoginService, private http: HttpClient, private spendenService: SpendenService, private kontaktService: KontaktService, private newsletterService: NewsletterService) {
     this.tabellebild = 'path/to/default-image.jpg';
     this.tabellekurzbeschreibung = 'textinhalt';
     this.tabelletiername = 'name';
@@ -39,14 +43,8 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.getSpendenSum();
-    this.loginService.getTiers().subscribe(
-      (data) => {
-        this.tierData = data;
-      },
-      (error) => {
-        console.error('Error retrieving tier data:', error);
-      }
-    );
+    this.getTierData();
+    this.getKontaktData();
   }
 
   deleteTier(tier: any) {
@@ -70,6 +68,28 @@ export class AdminComponent implements OnInit {
       },
       (error) => {
         console.error('Error retrieving tier data:', error);
+      }
+    );
+  }
+
+  getKontaktData() {
+    this.kontaktService.getKontakt().subscribe(
+      (data) => {
+        this.kontaktData = data;
+      },
+      (error) => {
+        console.error('Error retrieving kontakt data:', error);
+      }
+    );
+  }
+
+  getNewsletterData() {
+    this.newsletterService.getNewsletter().subscribe(
+      (data) => {
+        this.newsletterData = data;
+      },
+      (error) => {
+        console.error('Error retrieving kontakt data:', error);
       }
     );
   }

@@ -205,6 +205,29 @@ app.get('/api/admin', (req, res) => {
   });
 });
 
+app.get('/api/kontaktg', (req, res) => {
+  // Perform the database query
+  pool.query('SELECT * FROM kontakt', (error, results) => {
+    if (error) {
+      console.error('Error executing query: ', error);
+    } else {
+      console.log('Retrieved data from the "kontakt" table: ', results);
+      res.json(results);
+    }
+  });
+});
+
+app.get('/api/getemail', (req, res) => {
+  // Perform the database query
+  pool.query('SELECT * FROM newsletter', (error, results) => {
+    if (error) {
+      console.error('Error executing query: ', error);
+    } else {
+      console.log('Retrieved data from the "newsletter" table: ', results);
+      res.json(results);
+    }
+  });
+});
 
 
 // Newsletter Datenbank

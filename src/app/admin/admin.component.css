@@ -106,10 +106,12 @@ button[type="button"] {
 }
 
 .banner {
-  background-color: #C6E2FF;
-  color: #104E8B;
+  margin-top: 1rem;
+  background-color: #ffe6c6;
+  color: #704611;
   padding: 10px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 body {
