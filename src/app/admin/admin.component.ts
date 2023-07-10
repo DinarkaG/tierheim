@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from "../login.service";
 import {SpendenService} from "../spenden.service";
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminComponent implements OnInit {
 
-
   tabellebild: string;
   tabellekurzbeschreibung: string;
   tabelletiername: string;
@@ -22,10 +21,8 @@ export class AdminComponent implements OnInit {
   tabelletierkrankheit: string;
   tabelletierbeschreibung: string;
 
-
   tierData: any[] = [];
   spendenSum: number = 0;
-
 
   constructor(private loginService: LoginService, private http: HttpClient, private spendenService: SpendenService) {
     this.tabellebild = 'path/to/default-image.jpg';
@@ -42,7 +39,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.getSpendenSum();
-
     this.loginService.getTiers().subscribe(
       (data) => {
         this.tierData = data;
@@ -58,12 +54,10 @@ export class AdminComponent implements OnInit {
     this.loginService.deleteTier(tierId).subscribe(
       (response: any) => {
         console.log('Tier deleted successfully');
-        // Optionally, update the tier data after successful deletion
         this.getTierData();
       },
       error => {
         console.error('Error deleting tier:', error);
-        // Handle the error
       }
     );
   }
@@ -84,12 +78,10 @@ export class AdminComponent implements OnInit {
     this.loginService.updateTierData(tier).subscribe(
       (response: any) => {
         console.log('Changes submitted successfully');
-        // Optionally, update the tier data after successful submission
         this.getTierData();
       },
       error => {
         console.error('Error submitting changes:', error);
-        // Handle the error
       }
     );
   }
@@ -124,7 +116,6 @@ export class AdminComponent implements OnInit {
       },
       error => {
         console.error('Error adding tier:', error);
-        // Handle the error
       }
     );
   }
@@ -139,10 +130,8 @@ export class AdminComponent implements OnInit {
     );
   }
 
-
   changeSpenden(spendenwert: number) {
-    const url = '/api/changeSpenden'; // Replace with your actual server-side endpoint URL
-    /*const body = { spendenwert };*/
+    const url = '/api/changeSpenden';
     this.http.delete(url).subscribe(
       (response) => {
         console.log('Data deleted successfully');

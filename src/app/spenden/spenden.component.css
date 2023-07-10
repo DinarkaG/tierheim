@@ -88,13 +88,14 @@ ul{
 
 }
 
-/*Dritter bereich*/
+/*Dritter Bereich*/
 .spendenaufruf{
   background-color: rgba(2, 2, 2, 0.02);
   height: 40rem;
   margin-bottom: 6.25rem;
 
 }
+
 .texti{
   text-align: center;
   font-size: 1.1rem;
@@ -105,8 +106,7 @@ ul{
   line-height: 2.0rem;
 }
 
-/*vierter bereich*/
-
+/*Vierter Bereich*/
 .sachspenden{
   background-color: rgba(254, 232, 208, 0.5);
   height: 15rem;
@@ -176,7 +176,3 @@ ul{
   margin-left: 4rem;
   width: 10%;
 }
-
-
-
-

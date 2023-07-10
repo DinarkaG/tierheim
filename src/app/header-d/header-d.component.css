@@ -4,12 +4,9 @@ nav {
 }
 
 nav ul{
-
   list-style: none;
   display: flex;
-  /*gap: 20px;*/
 }
-
 
 nav a{
   padding: 1.2rem;
@@ -19,8 +16,6 @@ nav a{
   font-size: 1.3rem;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
-  /*text-align: center;*/
-
 }
 
 nav a::after{
@@ -38,7 +33,6 @@ nav a:hover::after{
   width: 100%;
 }
 
-
 .dekor{
   float: right;
   z-index: -2;
@@ -51,7 +45,6 @@ nav a:hover::after{
 
 .logo{
   width: 7rem;
-
   margin-top: -9rem;
   margin-left: 1rem;
 }

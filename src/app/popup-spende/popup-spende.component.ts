@@ -7,6 +7,5 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./popup-spende.component.css']
 })
 export class PopupSpendeComponent {
-
   constructor(public modal: NgbActiveModal) {}
 }

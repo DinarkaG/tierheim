@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PopupSpendeComponent } from './popup-spende.component';
 
 describe('PopupSpendeComponent', () => {

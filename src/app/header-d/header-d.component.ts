@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-d.component.css']
 })
 export class HeaderDComponent {
-
 }

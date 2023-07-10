@@ -2,14 +2,12 @@ import {Component, Input} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {PopupComponent} from "../popup/popup.component";
 
-
 @Component({
   selector: 'app-tiercards',
   templateUrl: './tiercards.component.html',
   styleUrls: ['./tiercards.component.css']
 })
 export class TiercardsComponent{
-
 
   @Input() name: string;
   @Input() beschreibung: string;
@@ -39,7 +37,6 @@ export class TiercardsComponent{
     this.tierbeschreibung = 'beschreibung';
   }
 
-
   openPopup(name: string, rasse: string, alter: string, geschlecht: string, krankheit: string, beschreibung: string) {
     const modalRef = this.modalService.open(PopupComponent);
     modalRef.componentInstance.name = name;
@@ -48,7 +45,6 @@ export class TiercardsComponent{
     modalRef.componentInstance.geschlecht = geschlecht;
     modalRef.componentInstance.krankheit = krankheit;
     modalRef.componentInstance.beschreibung = beschreibung;
-
   }
 
 }

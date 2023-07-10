@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { VermittlungComponent } from './vermittlung.component';
 
 describe('VermittlungComponent', () => {

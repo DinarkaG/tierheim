@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SpendenService {
 
-  private apiUrl = '/api/spendenSum'; // Replace with your actual server-side endpoint URL
+  private apiUrl = '/api/spendenSum';
 
   constructor(private http: HttpClient) {}
 

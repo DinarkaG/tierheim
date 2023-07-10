@@ -4,7 +4,6 @@ import {SpendenService} from '../spenden.service';
 import {PopupSpendeComponent} from "../popup-spende/popup-spende.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-spenden',
   templateUrl: './spenden.component.html',
@@ -19,7 +18,6 @@ export class SpendenComponent implements OnInit{
     this.getSpendenSum();
   }
 
-
   getSpendenSum() {
     this.spendenService.getSpendenSum().subscribe(
       (response) => {
@@ -32,7 +30,7 @@ export class SpendenComponent implements OnInit{
   }
 
   addToSpenden(wert: number) {
-    const url = '/api/addSpenden'; // Replace with your actual server-side endpoint URL
+    const url = '/api/addSpenden';
     const body = { wert };
 
     this.http.post(url, body).subscribe(
@@ -46,10 +44,8 @@ export class SpendenComponent implements OnInit{
     );
   }
 
-
   changeSpenden(spendenwert: number) {
-    const url = '/api/changeSpenden'; // Replace with your actual server-side endpoint URL
-    /*const body = { spendenwert };*/
+    const url = '/api/changeSpenden';
     this.http.delete(url).subscribe(
       (response) => {
         console.log('Data deleted successfully');
@@ -63,6 +59,5 @@ export class SpendenComponent implements OnInit{
 
   openPopupSpende() {
     const modalRef = this.modalService.open(PopupSpendeComponent);
-
   }
 }

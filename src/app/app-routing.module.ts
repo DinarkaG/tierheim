@@ -9,7 +9,7 @@ import {HundComponent} from "./hund/hund.component";
 import {KleintierComponent} from "./kleintier/kleintier.component";
 import {CardComponent} from "./card/card.component";
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component'; // Replace 'AdminComponent' with the actual component for your admin page
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent },

@@ -11,9 +11,7 @@ import { VermittlungComponent} from "./vermittlung/vermittlung.component";
 import { HomeComponent} from "./home/home.component";
 import { ContactComponent} from "./contact/contact.component";
 import { CardComponent } from './card/card.component';
-import { SlideshowComponent } from './slideshow/slideshow.component';
 import { ImpressumComponent } from './impressum/impressum.component';
-import { ButtonsComponent } from './buttons/buttons.component';
 import { SpendenComponent } from './spenden/spenden.component';
 import { TiercardsComponent } from './tiercards/tiercards.component';
 import { HundComponent } from './hund/hund.component';
@@ -29,13 +27,11 @@ import { PopupSpendeComponent } from './popup-spende/popup-spende.component';
   declarations: [
     AppComponent,
     CardComponent,
-    SlideshowComponent,
     HeaderDComponent,
     HomeComponent,
     ContactComponent,
     VermittlungComponent,
     ImpressumComponent,
-    ButtonsComponent,
     SpendenComponent,
     TiercardsComponent,
     HundComponent,

@@ -6,6 +6,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.css']
 })
+
 export class PopupComponent {
 
   @Input() name: string;
@@ -22,6 +23,6 @@ export class PopupComponent {
     this.beschreibung = 'beschreibung';
     this.rasse = 'rasse';
     this.geschlecht = 'geschlecht';
-
   }
+
 }

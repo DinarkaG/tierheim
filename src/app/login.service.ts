@@ -36,7 +36,6 @@ export class LoginService {
               tieralter: tier.tieralter,
               tierrasse: tier.tierrasse,
               tierkrankheit: tier.tierkrankheit
-              // Map other properties from database columns as needed
             };
           });
         })

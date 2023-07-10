@@ -6,7 +6,7 @@ import {map, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class KleintierService {
-  private apiUrl = '/api/kleintier'; // Replace with your actual API endpoint URL
+  private apiUrl = '/api/kleintier';
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +25,6 @@ export class KleintierService {
               tieralter: tier.tieralter,
               tierrasse: tier.tierrasse,
               tierkrankheit: tier.tierkrankheit
-              // Map other properties from database columns as needed
             };
           });
         })

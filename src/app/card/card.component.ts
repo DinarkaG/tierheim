@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -25,6 +24,5 @@ export class CardComponent {
     this.weblink = 'seitenlink';
     this.filter = 'filter';
     this.routerLink = 'filterLink';
-
   }
 }

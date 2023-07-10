@@ -82,12 +82,12 @@ a{
 }
 
 .instagram-button img{
-  width: 20px; /* Passe die Größe des Icons nach Bedarf an */
-  height: 20px; /* Passe die Größe des Icons nach Bedarf an */
+  width: 20px;
+  height: 20px;
 }
 .twitter-button img {
-  width: 20px; /* Passe die Größe des Icons nach Bedarf an */
-  height: 20px; /* Passe die Größe des Icons nach Bedarf an */
+  width: 20px;
+  height: 20px;
 }
 
 .login{

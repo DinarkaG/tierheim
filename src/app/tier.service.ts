@@ -6,7 +6,7 @@ import {map, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class TierService {
-  private apiUrl = '/api/katze'; // Replace with your actual API endpoint URL
+  private apiUrl = '/api/katze';
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +25,7 @@ export class TierService {
               tieralter: tier.tieralter,
               tierrasse: tier.tierrasse,
               tierkrankheit: tier.tierkrankheit
-              // Map other properties from database columns as needed
+
             };
           });
         })

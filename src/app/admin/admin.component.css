@@ -124,7 +124,6 @@ body {
   margin-top: 2rem;
 }
 
-/* Responsives Design */
 @media (max-width: 600px) {
   table {
     font-size: 12px;

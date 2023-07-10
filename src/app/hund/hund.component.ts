@@ -7,10 +7,10 @@ import {HundService} from "../hund.service";
   styleUrls: ['./hund.component.css']
 })
 export class HundComponent {
-  hundData: any[] = [];
-  constructor(private tierService: HundService) {
 
-  }
+  hundData: any[] = [];
+  constructor(private tierService: HundService) {}
+
   ngOnInit() {
     this.tierService.getHunds().subscribe(
       (data) => {
