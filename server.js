@@ -44,7 +44,6 @@ const pool = mysql.createPool({
 });
 
 app.get('/api/tierg', (req, res) => {
-  // Query the tier table to fetch all tier data
   const query = 'SELECT * FROM tier';
   connection.query(query, (err, results) => {
     if (err) {
@@ -58,8 +57,6 @@ app.get('/api/tierg', (req, res) => {
 
 app.post('/api/tierp', (req, res) => {
   const newTier = req.body;
-
-  // Insert the new tier data into the tier table
   const query = 'INSERT INTO tier SET ?';
   connection.query(query, newTier, (err, result) => {
     if (err) {
@@ -75,8 +72,6 @@ app.post('/api/tierp', (req, res) => {
 app.put('/api/tier/:tierId', (req, res) => {
   const tierId = req.params.tierId;
   const updatedTier = req.body;
-
-  // Update the tier data in the tier table
   const query = 'UPDATE tier SET ? WHERE tier_id = ?';
   connection.query(query, [updatedTier, tierId], (err, result) => {
     if (err) {
@@ -90,8 +85,6 @@ app.put('/api/tier/:tierId', (req, res) => {
 
 app.delete('/api/tierd/:tierId', (req, res) => {
   const tierId = req.params.tierId;
-
-  // Delete the tier with the specified ID from the tier table
   const query = 'DELETE FROM tier WHERE tier_id = ?';
   connection.query(query, [tierId], (err, result) => {
     if (err) {
@@ -102,9 +95,8 @@ app.delete('/api/tierd/:tierId', (req, res) => {
     }
   });
 });
-// Define an API endpoint for fetching users
+
 app.get('/api/katze', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM tier WHERE tierart = \'Katze\'', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
@@ -116,7 +108,6 @@ app.get('/api/katze', (req, res) => {
 });
 
 app.get('/api/hund', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM tier WHERE tierart = \'Hund\'', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
@@ -128,7 +119,6 @@ app.get('/api/hund', (req, res) => {
 });
 
 app.get('/api/kleintier', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM tier WHERE tierart = \'Kleintier\'', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
@@ -141,7 +131,6 @@ app.get('/api/kleintier', (req, res) => {
 
 
 // NEW
-
 
 io.on('connection', (socket) => {
   console.log('Ein Client hat eine Verbindung zum Socket.io-Server hergestellt.');
