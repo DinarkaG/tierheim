@@ -4,3 +4,17 @@
   <app-card class = "HundeKarte" [tierart]="'Kleintiere'" [beschreibung]="'Kuschelmini'" [groesse]="'155'" [bild] = "'assets/images/Hase.png'" [weblink] = "'https://de.wikipedia.org/wiki/Kleintier'" [routerLink]="'/kleintier'"></app-card>
 </div>
 
+<div class="tierliste">
+  <app-tiercards class="card" *ngFor="let tier of tierData"
+                 [name]="tier.tiername"
+                 [beschreibung]="tier.kurzbeschreibung"
+                 [groesse]="tier.groesse"
+                 [bild]="tier.tierbild"
+                 [tiername]="tier.tiername"
+                 [tierrasse]="tier.tierrasse"
+                 [tiergeschlecht]="tier.tiergeschlecht"
+                 [tieralter]="tier.tieralter"
+                 [tierkrankheit]="tier.tierkrankheit"
+                 [tierbeschreibung]="tier.tierbeschreibung"
+  ></app-tiercards>
+</div>

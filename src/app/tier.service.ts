@@ -7,11 +7,33 @@ import {map, Observable} from 'rxjs';
 })
 export class TierService {
   private apiUrl = '/api/katze';
-
+  private apiUrlAlle = '/api/tierg'
   constructor(private http: HttpClient) {}
 
   getTiers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl)
+      .pipe(
+        map((data: any[]) => {
+          return data.map(tier => {
+            return {
+              kurzbeschreibung: tier.kurzbeschreibung,
+              tierbild: tier.tierbild,
+              tiername: tier.tiername,
+              tierbeschreibung: tier.tierbeschreibung,
+              tiergeschlecht: tier.tiergeschlecht,
+              tierart: tier.tierart,
+              tieralter: tier.tieralter,
+              tierrasse: tier.tierrasse,
+              tierkrankheit: tier.tierkrankheit
+
+            };
+          });
+        })
+      );
+  }
+
+  getTiere(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlAlle)
       .pipe(
         map((data: any[]) => {
           return data.map(tier => {
