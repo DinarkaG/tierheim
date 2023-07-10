@@ -45,6 +45,7 @@ export class AdminComponent implements OnInit {
     this.getSpendenSum();
     this.getTierData();
     this.getKontaktData();
+    this.getNewsletterData();
   }
 
   deleteTier(tier: any) {
@@ -89,7 +90,7 @@ export class AdminComponent implements OnInit {
         this.newsletterData = data;
       },
       (error) => {
-        console.error('Error retrieving kontakt data:', error);
+        console.error('Error retrieving newsletter data:', error);
       }
     );
   }

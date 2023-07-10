@@ -101,7 +101,6 @@ app.get('/api/katze', (req, res) => {
     if (error) {
       console.error('Error executing query: ', error);
     } else {
-      console.log('Retrieved data from the "tier" table: ', results);
       res.json(results);
     }
   });
@@ -112,7 +111,6 @@ app.get('/api/hund', (req, res) => {
     if (error) {
       console.error('Error executing query: ', error);
     } else {
-      console.log('Retrieved data from the "tier" table: ', results);
       res.json(results);
     }
   });
@@ -123,14 +121,13 @@ app.get('/api/kleintier', (req, res) => {
     if (error) {
       console.error('Error executing query: ', error);
     } else {
-      console.log('Retrieved data from the "tier" table: ', results);
       res.json(results);
     }
   });
 });
 
 
-// NEW
+// Server Aktualisierung ----------------------
 
 io.on('connection', (socket) => {
   console.log('Ein Client hat eine Verbindung zum Socket.io-Server hergestellt.');
@@ -160,7 +157,7 @@ app.get('/api/spendenSum', (req, res) => {
       const sum = results[0].sum || 0;
       res.status(200).json({ sum });
 
-      io.emit('update', { sum }); // Emittiere das 'update'-Ereignis an alle verbundenen Clients
+      io.emit('update', { sum });
     }
   });
 });
@@ -192,9 +189,7 @@ app.post('/api/addSpenden', (req, res) => {
   });
 });
 
-
 app.get('/api/admin', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM admin', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
@@ -206,35 +201,29 @@ app.get('/api/admin', (req, res) => {
 });
 
 app.get('/api/kontaktg', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM kontakt', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
     } else {
-      console.log('Retrieved data from the "kontakt" table: ', results);
       res.json(results);
     }
   });
 });
 
 app.get('/api/getemail', (req, res) => {
-  // Perform the database query
   pool.query('SELECT * FROM newsletter', (error, results) => {
     if (error) {
       console.error('Error executing query: ', error);
     } else {
-      console.log('Retrieved data from the "newsletter" table: ', results);
       res.json(results);
     }
   });
 });
 
-
 // Newsletter Datenbank
 app.post('/api/addEmail', (req, res) => {
-  const { email } = req.body; // Assuming the button click sends the 'wert' value in the request body
+  const { email } = req.body;
 
-  // Insert the 'wert' value into the 'spenden' table
   const query = 'INSERT INTO newsletter (email) VALUES (?)';
   connection.query(query, [email], (error, results) => {
     if (error) {
@@ -258,11 +247,10 @@ app.post('/api/login', (req, res) => {
       res.status(500).json({ error: 'An error occurred' });
     } else {
       if (results.length > 0) {
-        const adminId = results[0].admin_id; // Retrieve the admin's admin_id from the query result
-        // Login successful, return the admin's admin_id
+        const adminId = results[0].admin_id;
         res.json({ success: true, adminId });
       } else {
-        // Invalid username or password
+        // Falscher username oder passwort
         res.status(401).json({ error: 'Invalid username or password' });
       }
     }
@@ -271,9 +259,7 @@ app.post('/api/login', (req, res) => {
 
 app.post('/api/contact', (req, res) => {
   const { name, email, nachricht } = req.body;
-
   const query = 'INSERT INTO kontakt (name, email, nachricht) VALUES (?, ?, ?)';
-
   connection.query(query, [name, email, nachricht], (error, results) => {
     if (error) {
       console.error('Error saving message to database:', error);
@@ -289,13 +275,8 @@ app.listen(8080, function () {
   console.log('App listening on port 8080');
 });
 
-
-
 // application -------------------------------------------------------------
 app.get('/', function (req, res) {
   //res.send("Hello World123");
   res.sendFile('index.html', { root: __dirname + '/dist/tierheim' }); // TODO rename to your app-name
 });
-
-
-
