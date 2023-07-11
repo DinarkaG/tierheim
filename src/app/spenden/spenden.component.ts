@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SpendenService } from '../spenden.service';
-import { PopupSpendeComponent } from "../popup-spende/popup-spende.component";
+import {PopupNewsletterComponent} from "../popup-newsletter/popup-newsletter.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,8 +12,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SpendenComponent implements OnInit, OnDestroy {
   spendenSum: number = 0;
-
-  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {}
+  @Input() text: string;
+  constructor(private http: HttpClient, private spendenService: SpendenService, private modalService: NgbModal) {
+    this.text = "Dankeschön für ihre Spende!"
+  }
 
   ngOnInit() {
     this.spendenService.connect();
@@ -47,8 +49,9 @@ export class SpendenComponent implements OnInit, OnDestroy {
     );
   }
 
-  openPopupSpende() {
-    const modalRef = this.modalService.open(PopupSpendeComponent);
+  openPopupSpende(text: string) {
+    const modalRef = this.modalService.open(PopupNewsletterComponent);
+    modalRef.componentInstance.text = text;
   }
 }
 
