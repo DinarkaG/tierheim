@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,6 +7,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./popup-newsletter.component.css']
 })
 export class PopupNewsletterComponent {
-
-  constructor(public modal: NgbActiveModal) {}
+  @Input() text: string;
+  constructor(public modal: NgbActiveModal) {
+    this.text = "textinhalt"
+  }
 }
