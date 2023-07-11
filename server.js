@@ -257,6 +257,20 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+app.delete('/api/changeSpenden', (req, res) => {
+  /*const {spendenwert} = req.query;*/
+
+  const query = 'DELETE FROM spende WHERE rechnungsnummer > 0';
+
+  connection.query(query,(error, results) => {
+    if (error) {
+      res.status(500).json({ error: error.message });
+    } else {
+      res.json({ message: 'Spenden erfolgreich gelöscht' });
+    }
+  });
+});
+
 app.post('/api/contact', (req, res) => {
   const { name, email, nachricht } = req.body;
   const query = 'INSERT INTO kontakt (name, email, nachricht) VALUES (?, ?, ?)';

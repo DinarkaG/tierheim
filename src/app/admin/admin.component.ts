@@ -151,7 +151,7 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  changeSpenden(spendenwert: number) {
+  changeSpenden() {
     const url = '/api/changeSpenden';
     this.http.delete(url).subscribe(
       (response) => {
