@@ -21,7 +21,7 @@ import { PopupComponent } from './popup/popup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { PopupNewsletterComponent } from './popup-newsletter/popup-newsletter.component';
-import { PopupSpendeComponent } from './popup-spende/popup-spende.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +41,6 @@ import { PopupSpendeComponent } from './popup-spende/popup-spende.component';
     LoginComponent,
     AdminComponent,
     PopupNewsletterComponent,
-    PopupSpendeComponent
   ],
   imports: [
     BrowserModule,
