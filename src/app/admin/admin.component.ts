@@ -5,13 +5,12 @@ import {KontaktService} from "../kontakt.service";
 import {NewsletterService} from "../newsletter.service";
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit{
 
   tabellebild: string;
   tabellekurzbeschreibung: string;

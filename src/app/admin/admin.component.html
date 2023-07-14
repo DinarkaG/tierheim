@@ -1,4 +1,4 @@
-<div>
+<div> <!-- TIER HINZUFÜGEN -->
   <div class = "banner">Funktionen, um ein neues Tier in die Datenbank einzufügen</div>
   <form (submit)="addTier()">
     <div>
@@ -40,6 +40,7 @@
     </div>
     <button class="spenden-button" type="submit">Add</button>
   </form>
+  <!-- TIER TABELLE | TIER BEARBEITEN | TIER LÖSCHEN -->
   <div class = "banner">Tiere</div>
   <div class="table-container">
     <table>
@@ -80,6 +81,7 @@
       </tbody>
     </table>
   </div>
+  <!-- KONTAKT TABELLE | NEWSLETTER TABELLE -->
   <div class = "banner">Kontakte</div>
   <div class="table-container">
     <table>
@@ -116,12 +118,11 @@
       </tbody>
     </table>
   </div>
-
+  <!-- SPENDEN FUNKTIONEN -->
   <div class="spenden-funktionen">
     <div class="banner">
       Funktionen für die Veränderung des Spendenstatus
     </div>
-
     <div>
       <button (click)="changeSpenden()" class="spenden-button">Stell den Spendenstand auf 0 Euro</button>
     </div>

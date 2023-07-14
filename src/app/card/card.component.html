@@ -3,11 +3,13 @@
     <div class="slide active">
       <div class="container2">
         <div class="wrapper">
+          <!-- KARTEN INHALT | BILD | ART | BESCHREIBUNG -->
           <img [width]="groesse" [src]="bild"  alt="tier">
           <h1>{{ tierart }}</h1>
           <p>{{ beschreibung }}
           </p>
         </div>
+        <!-- BUTTONS -->
         <div class="button-wrapper">
           <button class="btn outline"><a target="_blank" class = "link" [href] = "weblink" >Details</a> </button>
           <button class="btn fill"><a class="link" [routerLink] = "routerLink">Filter</a> </button>

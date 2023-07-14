@@ -3,11 +3,13 @@
     <div class="slide active">
       <div class="container2">
         <div class="wrapper">
+          <!-- KARTEN INHALT -->
           <img [width]="200" [src]="bild"  alt="tier">
           <h1>{{ name }}</h1>
           <p>{{ beschreibung }}
           </p>
         </div>
+        <!-- BUTTON ZUM ÖFFNEN DES POPUP STECKBRIEFES -->
         <div class="button-wrapper">
           <button (click)="openPopup(tiername, tierrasse, tieralter, tiergeschlecht, tierkrankheit, tierbeschreibung)" class="btn outline">Ansehen</button>
         </div>

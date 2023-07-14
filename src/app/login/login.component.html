@@ -1,6 +1,7 @@
 <div class="login-container">
   <form class="login-form" (ngSubmit)="onSubmit()">
     <div>
+      <!-- EINGABEFELDER -->
       <label for="username">Username:</label>
       <input class="login-input" type="text" id="username" name="username" [(ngModel)]="username">
     </div>
@@ -8,6 +9,7 @@
       <label for="password">Password:</label>
       <input class="login-input" type="password" id="password" name="password" [(ngModel)]="password">
     </div>
+    <!-- BUTTON -->
     <button class="login-button" type="submit">Login</button>
   </form>
 </div>
