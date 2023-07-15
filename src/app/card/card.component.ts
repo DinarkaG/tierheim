@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class CardComponent {
+  // Input Variablen zum Verändern der Karteninhalte
   @Input() tierart: string;
   @Input() beschreibung: string;
   @Input() bild: string;
@@ -16,6 +17,7 @@ export class CardComponent {
   @Input() filter: string;
   @Input() routerLink: string;
 
+  // Konstruktor
   constructor(private route: ActivatedRoute) {
     this.tierart = 'Card Title';
     this.beschreibung = 'Tier Info';

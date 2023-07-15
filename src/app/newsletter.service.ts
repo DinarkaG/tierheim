@@ -7,15 +7,19 @@ import {map, Observable} from "rxjs";
 })
 export class NewsletterService {
 
+  // Benötigte APIs
   private apiUrl = '/api/addemail';
   private apiGetUrl = '/api/getemail';
 
+  // Konstruktor
   constructor(private http: HttpClient) { }
 
+  // Funktion zum Hinzufügen einer Email
   addtoEmail(email: string){
     return this.http.post(this.apiUrl, email);
   }
 
+  // Funktion zum Erhalten der Newsletter Daten
   getNewsletter(): Observable<any[]> {
     return this.http.get<any[]>(this.apiGetUrl)
       .pipe(

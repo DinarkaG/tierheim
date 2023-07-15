@@ -8,16 +8,20 @@ import { TierService } from "../tier.service";
 })
 
 export class KatzeComponent implements OnInit{
+  // Variable
   tierData: any[] = [];
+
+  // Konstruktor
   constructor(private tierService: TierService) {}
 
+  // Aufrufen der Funktion nach dem Initialisieren der Komponente
   ngOnInit() {
-    this.tierService.getTiers().subscribe(
+    this.tierService.getTiers().subscribe( // Katzen Array wird mit Katzen Daten gefüllt
       (data) => {
         this.tierData = data;
       },
       (error) => {
-        console.error('Error retrieving tier data:', error);
+        console.error('Katzen konnten nicht erhalten werden:', error);
       }
     );
   }

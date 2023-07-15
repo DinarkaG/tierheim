@@ -8,16 +8,20 @@ import {HundService} from "../hund.service";
 })
 export class HundComponent {
 
+  // Variable zum Speichern der Hundedaten
   hundData: any[] = [];
+
+  // Konstruktor
   constructor(private tierService: HundService) {}
 
+  // Aufrufen der Funktion nach Initialisierung der Komponente
   ngOnInit() {
-    this.tierService.getHunds().subscribe(
+    this.tierService.getHunds().subscribe( // Hunde Array wird mit Hundedaten gefüllt
       (data) => {
         this.hundData = data;
       },
       (error) => {
-        console.error('Error retrieving tier data:', error);
+        console.error('Tier Daten konnten nicht erhalten werden:', error);
       }
     );
   }

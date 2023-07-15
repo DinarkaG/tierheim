@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class PopupComponent {
 
+  // Variablen zum Überschreiben des Popup Inhalts
   @Input() name: string;
   @Input() alter: string;
   @Input() krankheit: string;
@@ -16,6 +17,7 @@ export class PopupComponent {
   @Input() rasse: string;
   @Input() geschlecht: string;
 
+  // Konstruktor
   constructor(public modal: NgbActiveModal) {
     this.name = 'name';
     this.alter = 'alter';

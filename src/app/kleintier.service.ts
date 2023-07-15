@@ -6,10 +6,14 @@ import {map, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class KleintierService {
+
+  // Benötigte API
   private apiUrl = '/api/kleintier';
 
+  // Konstruktor
   constructor(private http: HttpClient) {}
 
+  // Funktion zum Erhalten der Kleintierdaten
   getKleintiers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl)
       .pipe(

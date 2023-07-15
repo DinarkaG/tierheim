@@ -6,10 +6,15 @@ import {map, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class TierService {
+
+  // Benötigte APIs
   private apiUrl = '/api/katze';
   private apiUrlAlle = '/api/tierg'
+
+  // Konstruktor
   constructor(private http: HttpClient) {}
 
+  // Funktion zum Erhalten der Katzen Daten
   getTiers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl)
       .pipe(
@@ -32,6 +37,7 @@ export class TierService {
       );
   }
 
+  // Funktion zum Erhalten der Tier Daten
   getTiere(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrlAlle)
       .pipe(

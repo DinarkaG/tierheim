@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminComponent implements OnInit{
 
+  // Variablen zum speichern der Tierdaten
   tabellebild: string;
   tabellekurzbeschreibung: string;
   tabelletiername: string;
@@ -22,11 +23,13 @@ export class AdminComponent implements OnInit{
   tabelletierkrankheit: string;
   tabelletierbeschreibung: string;
 
+  // Variablen zum speichern der Daten
   tierData: any[] = [];
   kontaktData: any[] = [];
   newsletterData: any[] = [];
   spendenSum: number = 0;
 
+  // Konstruktor
   constructor(private loginService: LoginService, private http: HttpClient, private spendenService: SpendenService, private kontaktService: KontaktService, private newsletterService: NewsletterService) {
     this.tabellebild = 'path/to/default-image.jpg';
     this.tabellekurzbeschreibung = 'textinhalt';
@@ -37,9 +40,9 @@ export class AdminComponent implements OnInit{
     this.tabelletiergeschlecht = 'geschlecht';
     this.tabelletierrasse = 'rasse';
     this.tabelletierbeschreibung = 'beschreibung';
-
   }
 
+  // Ausführen der Funktionen nach der Initialisierung der Komponente
   ngOnInit() {
     this.getSpendenSum();
     this.getTierData();
@@ -47,66 +50,66 @@ export class AdminComponent implements OnInit{
     this.getNewsletterData();
   }
 
-  deleteTier(tier: any) {
+
+  deleteTier(tier: any) { // Funktion zum Löschen eines Tieres
     const tierId = tier.tier_id;
     this.loginService.deleteTier(tierId).subscribe(
       (response: any) => {
-        console.log('Tier deleted successfully');
+        //console.log('Tier deleted successfully'); // Log zum prüfen
         this.getTierData();
       },
       error => {
-        console.error('Error deleting tier:', error);
+        console.error('Tier konnte nicht gelöscht werden:', error);
       }
     );
   }
 
-  getTierData() {
-
+  getTierData() { // Funktion zum Erhalten der Tier Daten
     this.loginService.getTiers().subscribe(
       (data) => {
         this.tierData = data;
       },
       (error) => {
-        console.error('Error retrieving tier data:', error);
+        console.error('Tier Daten konnten nicht erhalten werden:', error);
       }
     );
   }
 
-  getKontaktData() {
+  getKontaktData() { // Funktion zum Erhalten der Kontakt Daten
     this.kontaktService.getKontakt().subscribe(
       (data) => {
         this.kontaktData = data;
       },
       (error) => {
-        console.error('Error retrieving kontakt data:', error);
+        console.error('Kontakt Daten konnten nicht erhalten werden:', error);
       }
     );
   }
 
-  getNewsletterData() {
+  getNewsletterData() { // Funktion zum Erhalten der Newsletter Daten
     this.newsletterService.getNewsletter().subscribe(
       (data) => {
         this.newsletterData = data;
       },
       (error) => {
-        console.error('Error retrieving newsletter data:', error);
+        console.error('Newsletter Daten konnten nicht erhalten werden:', error);
       }
     );
   }
 
-  submitChanges(tier: any) {
+  submitChanges(tier: any) { // Funktion zum Ändern eines Tieres
     this.loginService.updateTierData(tier).subscribe(
       (response: any) => {
-        console.log('Changes submitted successfully');
+        // console.log('Erfolgreich geändert'); // Log zum prüfen
         this.getTierData();
       },
       error => {
-        console.error('Error submitting changes:', error);
+        console.error('Veränderungen konnten nicht eingereicht werden:', error);
       }
     );
   }
 
-  addTier() {
+  addTier() { // Funktion zum Hinzufügen eines Tieres
     const newTier: any = {
       tierbild: this.tabellebild,
       tiername: this.tabelletiername,
@@ -121,8 +124,6 @@ export class AdminComponent implements OnInit{
 
     this.loginService.addTier(newTier).subscribe(
       (response: any) => {
-        console.log('New tier added successfully');
-        // Optionally, update the tier data after successful addition
         this.getTierData();
         this.tabellebild = '';
         this.tabellekurzbeschreibung = '';
@@ -135,30 +136,31 @@ export class AdminComponent implements OnInit{
         this.tabelletierbeschreibung = '';
       },
       error => {
-        console.error('Error adding tier:', error);
+        console.error('Tier konnte nicht hinzugefügt werden:', error);
       }
     );
   }
-  getSpendenSum() {
+
+  getSpendenSum() { // Funktion zum Erhalten der Spenden Daten
     this.spendenService.getSpendenSum().subscribe(
       (response) => {
         this.spendenSum = response.sum;
       },
       (error) => {
-        console.error('Error retrieving sum:', error);
+        console.error('Summe konnte nicht erhalten werden:', error);
       }
     );
   }
 
-  changeSpenden() {
+  changeSpenden() { // Funktion zum Verändern der Spenden Daten
     const url = '/api/changeSpenden';
     this.http.delete(url).subscribe(
       (response) => {
-        console.log('Data deleted successfully');
+        //console.log('Erfolgreich gelöscht'); // Log zum Prüfen
         this.getSpendenSum();
       },
       (error) => {
-        console.error('Error deleting data:', error);
+        console.error('Spenden konnten nicht gelöscht werden:', error);
       }
     );
   }

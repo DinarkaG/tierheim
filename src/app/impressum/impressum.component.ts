@@ -12,8 +12,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class ImpressumComponent implements OnInit {
-  email: string = ''; // Variable zum Speichern der E-Mail-Adresse
+  // Variablen
+  email: string = '';
   @Input() text: string;
+
+  // Konstruktor
   constructor(private http: HttpClient, private newsletterService: NewsletterService, private modalService: NgbModal) {
     this.text = "Dankeschön! Sie haben unseren Newsletter erfolgreich abonniert."
   }
@@ -21,21 +24,21 @@ export class ImpressumComponent implements OnInit {
   ngOnInit() {
   }
 
-  addtoEmail(email: string) {
+  addtoEmail(email: string) { // Funktion zum Hinzufügen einer Email in die newsletter Tabelle
     const url = '/api/addEmail';
     const body = { email };
 
     this.http.post(url, body).subscribe(
       (response) => {
-        console.log('Data added successfully');
+        //console.log('Email erfolgreich hinzugefügt'); // Log zum Prüfen
       },
       (error) => {
-        console.error('Error adding data:', error);
+        console.error('Email konnte nicht hinzugefügt werden:', error);
       }
     );
   }
 
-  openPopupNewsletter(text: string) {
+  openPopupNewsletter(text: string) { // Funktion zum Erscheinen eines Popups
     const modalRef = this.modalService.open(PopupNewsletterComponent);
     modalRef.componentInstance.text = text;
   }

@@ -9,15 +9,18 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LoginComponent {
+
+  // Variablen
   username: string;
   password: string;
 
+  // Konstruktor
   constructor(private http: HttpClient, private router: Router) {
     this.username = '';
     this.password = '';
   }
 
-  onSubmit() {
+  onSubmit() { // Funktion zum Abgleichen der Login Daten
     const url = '/api/login';
     const body = { username: this.username, password: this.password };
 
@@ -27,12 +30,12 @@ export class LoginComponent {
           if (response.success) {
             const adminId = response.adminId;
             this.router.navigate(['/admin']);
-            console.log('eingeloggt');
+            // console.log('eingeloggt'); // Log zum prüfen
           } else {
           }
         },
         error => {
-          console.error('Error during login:', error);
+          console.error('Login fehlgeschlagen:', error);
         }
       );
   }

@@ -10,16 +10,21 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./contact.component.css'],
   providers: [KontaktService]
 })
+
 export class ContactComponent {
+
+  // Variablen
   name: string = '';
   email: string = '';
   nachricht: string = '';
   @Input() text: string;
+
+  // Konstruktor
   constructor(private http: HttpClient, private kontaktService: KontaktService, private modalService: NgbModal) {
     this.text = "Vielen Dank für Ihre Nachricht."
   }
 
-  sendMessage() {
+  sendMessage() { // Funktion zum Senden einer Nachricht
     const message = {
       name: this.name,
       email: this.email,
@@ -32,11 +37,12 @@ export class ContactComponent {
           console.log('Message sent');
         },
         error => {
-          console.error('Error while sending a message', error);
+          console.error('Nachricht konnte nicht versendet werden:', error);
         }
       );
   }
-  openPopupNewsletter(text: string) {
+
+  openPopupNewsletter(text: string) { // Funktion zum Erscheinen eines Popups
     const modalRef = this.modalService.open(PopupNewsletterComponent);
     modalRef.componentInstance.text = text;
   }

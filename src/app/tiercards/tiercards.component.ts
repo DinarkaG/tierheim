@@ -9,6 +9,7 @@ import {PopupComponent} from "../popup/popup.component";
 })
 export class TiercardsComponent{
 
+  // Variablen zum Überschreiben den Karten Inhalts
   @Input() name: string;
   @Input() beschreibung: string;
   @Input() bild: string;
@@ -22,7 +23,7 @@ export class TiercardsComponent{
   @Input() tierkrankheit: string;
   @Input() tierbeschreibung: string;
 
-
+  // Konstruktor
   constructor(private modalService: NgbModal) {
     this.name = 'Tier name';
     this.beschreibung = 'Tier Info';
@@ -37,6 +38,7 @@ export class TiercardsComponent{
     this.tierbeschreibung = 'beschreibung';
   }
 
+  // Funktion zum Aufrufen eines Popups
   openPopup(name: string, rasse: string, alter: string, geschlecht: string, krankheit: string, beschreibung: string) {
     const modalRef = this.modalService.open(PopupComponent);
     modalRef.componentInstance.name = name;

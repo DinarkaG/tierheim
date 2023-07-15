@@ -6,18 +6,18 @@ var mysql = require('mysql');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-
 bodyParser = require('body-parser');
 
-// support parsing of application/json type post data
+// Unterstützt Parsen von Beitragsdaten vom Typ JSON
 app.use(bodyParser.json());
 
-// support parsing of application/x-www-form-urlencoded post data
+// Unterstützt Parsen von x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// configuration =================
+// Konfiguration------------
 app.use(express.static(path.join(__dirname, '/dist/tierheim'))); // TODO rename to your app-name
 
+// VERBINDUNG MIT DER DATENBANK _______________________________________________________
 const connection = mysql.createConnection({
   port: '3306',
   database: 'tierheim',
@@ -35,7 +35,7 @@ connection.connect((err) => {
   console.log('Verbunden mit der Datenbank.');
 });
 
-// Create a MySQL connection pool
+// POOL VERBINDUNG HERSTELLEN ___________________________________________________________
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
@@ -43,6 +43,7 @@ const pool = mysql.createPool({
   database: 'tierheim',
 });
 
+// API für die tier Daten | get
 app.get('/api/tierg', (req, res) => {
   const query = 'SELECT * FROM tier';
   connection.query(query, (err, results) => {
@@ -130,12 +131,9 @@ app.get('/api/kleintier', (req, res) => {
 // Server Aktualisierung ----------------------
 
 io.on('connection', (socket) => {
-  console.log('Ein Client hat eine Verbindung zum Socket.io-Server hergestellt.');
-
-  // Ereignisbehandlung und Logik für den Socket.io-Server
-
+  //console.log('Verbindung zum Socket.io-Server hergestellt.');
   socket.on('disconnect', () => {
-    console.log('Ein Client hat die Verbindung zum Socket.io-Server getrennt.');
+    //console.log('Verbindung zum Socket.io-Server getrennt.');
   });
 });
 
@@ -144,8 +142,7 @@ server.listen(port, () => {
   console.log(`Socket.io-Server läuft auf Port ${port}`);
 });
 
-
-// Routen zum Abrufen der Spendensumme und zum Hinzufügen von Spenden
+// API für die Spendensumme | get
 app.get('/api/spendenSum', (req, res) => {
   const query = 'SELECT SUM(wert) AS sum FROM spende';
 
@@ -163,8 +160,7 @@ app.get('/api/spendenSum', (req, res) => {
 });
 
 app.post('/api/addSpenden', (req, res) => {
-  const { wert } = req.body; // Angenommen, der Button-Klick sendet den 'wert' im Anfragekörper
-
+  const { wert } = req.body;
   // Füge den 'wert' in die 'spende' Tabelle ein
   const query = 'INSERT INTO spende (wert) VALUES (?)';
   connection.query(query, [wert], (error, results) => {
@@ -175,20 +171,20 @@ app.post('/api/addSpenden', (req, res) => {
       console.log('Data inserted successfully');
       res.status(200).json({ message: 'Data inserted successfully' });
 
-      // Rufe die Spendensumme erneut ab, um sie zu aktualisieren und das `update`-Ereignis zu emittieren
       const sumQuery = 'SELECT SUM(wert) AS sum FROM spende';
       connection.query(sumQuery, (sumError, sumResults) => {
         if (sumError) {
           console.error('Error retrieving sum:', sumError);
         } else {
           const sum = sumResults[0].sum || 0;
-          io.emit('update', { sum }); // Emittiere das 'update'-Ereignis an alle verbundenen Clients
+          io.emit('update', { sum }); // 'update' wird an alle verbundenen Clients weitergeleiten
         }
       });
     }
   });
 });
 
+// API für die admin Daten | get
 app.get('/api/admin', (req, res) => {
   pool.query('SELECT * FROM admin', (error, results) => {
     if (error) {
@@ -200,6 +196,7 @@ app.get('/api/admin', (req, res) => {
   });
 });
 
+// API für die kontakt Daten | get
 app.get('/api/kontaktg', (req, res) => {
   pool.query('SELECT * FROM kontakt', (error, results) => {
     if (error) {
@@ -210,6 +207,7 @@ app.get('/api/kontaktg', (req, res) => {
   });
 });
 
+// API für die newsletter Daten | get
 app.get('/api/getemail', (req, res) => {
   pool.query('SELECT * FROM newsletter', (error, results) => {
     if (error) {
@@ -220,7 +218,7 @@ app.get('/api/getemail', (req, res) => {
   });
 });
 
-// Newsletter Datenbank
+// API für die newsletter Daten | post
 app.post('/api/addEmail', (req, res) => {
   const { email } = req.body;
 
@@ -236,6 +234,7 @@ app.post('/api/addEmail', (req, res) => {
   });
 });
 
+// API für die admin Daten | post
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -257,11 +256,9 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+// API für die spenden Daten | delete
 app.delete('/api/changeSpenden', (req, res) => {
-  /*const {spendenwert} = req.query;*/
-
   const query = 'DELETE FROM spende WHERE rechnungsnummer > 0';
-
   connection.query(query,(error, results) => {
     if (error) {
       res.status(500).json({ error: error.message });
@@ -271,6 +268,7 @@ app.delete('/api/changeSpenden', (req, res) => {
   });
 });
 
+// API für die kontakt Daten | post
 app.post('/api/contact', (req, res) => {
   const { name, email, nachricht } = req.body;
   const query = 'INSERT INTO kontakt (name, email, nachricht) VALUES (?, ?, ?)';
@@ -291,6 +289,5 @@ app.listen(8080, function () {
 
 // application -------------------------------------------------------------
 app.get('/', function (req, res) {
-  //res.send("Hello World123");
-  res.sendFile('index.html', { root: __dirname + '/dist/tierheim' }); // TODO rename to your app-name
+  res.sendFile('index.html', { root: __dirname + '/dist/tierheim' });
 });

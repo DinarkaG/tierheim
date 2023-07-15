@@ -8,16 +8,20 @@ import { KleintierService} from "../kleintier.service";
 })
 
 export class KleintierComponent {
+  // Variable
   kleintierData: any[] = [];
+
+  // Konstruktor
   constructor(private tierService: KleintierService) {}
 
+  // Aufrufen der Funktion nach dem Initialisieren der Komponente
   ngOnInit() {
-    this.tierService.getKleintiers().subscribe(
+    this.tierService.getKleintiers().subscribe( // Kleintier Array wird mit Kleintier Daten gefüllt
       (data) => {
         this.kleintierData = data;
       },
       (error) => {
-        console.error('Error retrieving tier data:', error);
+        console.error('Kleintiere konnten nicht erhalten werden:', error);
       }
     );
   }

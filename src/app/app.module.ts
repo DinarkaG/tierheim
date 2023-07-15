@@ -22,7 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { PopupNewsletterComponent } from './popup-newsletter/popup-newsletter.component';
 
-
+// Benötigte Module
 @NgModule({
   declarations: [
     AppComponent,

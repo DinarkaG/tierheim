@@ -11,6 +11,7 @@ import {CardComponent} from "./card/card.component";
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
+// Routen
 const routes: Routes = [
   {path: '', component:HomeComponent },
   {path: 'vermittlung', component: VermittlungComponent},
