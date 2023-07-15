@@ -34,7 +34,7 @@ export class ContactComponent {
     this.kontaktService.sendMessage(message)
       .subscribe(
         response => {
-          console.log('Message sent');
+          // console.log('Nachricht erfolgreich verschickt'); // Log zum Prüfen
         },
         error => {
           console.error('Nachricht konnte nicht versendet werden:', error);

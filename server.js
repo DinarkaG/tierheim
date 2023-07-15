@@ -48,8 +48,8 @@ app.get('/api/tierg', (req, res) => {
   const query = 'SELECT * FROM tier';
   connection.query(query, (err, results) => {
     if (err) {
-      console.error('Error executing MySQL query:', err);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Tier Daten konnten nicht erhalten werden:', err);
+      res.status(500).json({ error: 'Ein Fehler ist aufgetreten' });
     } else {
       res.json(results);
     }
@@ -61,8 +61,8 @@ app.post('/api/tierp', (req, res) => {
   const query = 'INSERT INTO tier SET ?';
   connection.query(query, newTier, (err, result) => {
     if (err) {
-      console.error('Error executing MySQL query:', err);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Tier konnte nicht hinzugefügt werden:', err);
+      res.status(500).json({ error: 'Ein Fehler ist aufgetreten' });
     } else {
       const insertedTierId = result.insertId;
       res.json({ success: true, tierId: insertedTierId });
@@ -76,8 +76,8 @@ app.put('/api/tier/:tierId', (req, res) => {
   const query = 'UPDATE tier SET ? WHERE tier_id = ?';
   connection.query(query, [updatedTier, tierId], (err, result) => {
     if (err) {
-      console.error('Error executing MySQL query:', err);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Tier konnte nicht verändert werden:', err);
+      res.status(500).json({ error: 'Ein Fehler ist aufgetreten' });
     } else {
       res.json({ success: true });
     }
@@ -89,8 +89,8 @@ app.delete('/api/tierd/:tierId', (req, res) => {
   const query = 'DELETE FROM tier WHERE tier_id = ?';
   connection.query(query, [tierId], (err, result) => {
     if (err) {
-      console.error('Error executing MySQL query:', err);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Tier konnte nicht gelöscht werden:', err);
+      res.status(500).json({ error: 'Ein Fehler ist aufgetreten' });
     } else {
       res.json({ success: true });
     }
@@ -100,7 +100,7 @@ app.delete('/api/tierd/:tierId', (req, res) => {
 app.get('/api/katze', (req, res) => {
   pool.query('SELECT * FROM tier WHERE tierart = \'Katze\'', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Katzen konnten nicht erhalten werden: ', error);
     } else {
       res.json(results);
     }
@@ -110,7 +110,7 @@ app.get('/api/katze', (req, res) => {
 app.get('/api/hund', (req, res) => {
   pool.query('SELECT * FROM tier WHERE tierart = \'Hund\'', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Hunde konnten nicht erhalten werden: ', error);
     } else {
       res.json(results);
     }
@@ -120,7 +120,7 @@ app.get('/api/hund', (req, res) => {
 app.get('/api/kleintier', (req, res) => {
   pool.query('SELECT * FROM tier WHERE tierart = \'Kleintier\'', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Kleintiere konnten nicht erhalten werden: ', error);
     } else {
       res.json(results);
     }
@@ -148,8 +148,8 @@ app.get('/api/spendenSum', (req, res) => {
 
   connection.query(query, (error, results) => {
     if (error) {
-      console.error('Error retrieving data:', error);
-      res.status(500).json({ message: 'Error retrieving data' });
+      console.error('Spendensumme konnte nicht erhalten werden:', error);
+      res.status(500).json({ message: 'Ein Fehler ist aufgetreten' });
     } else {
       const sum = results[0].sum || 0;
       res.status(200).json({ sum });
@@ -165,16 +165,16 @@ app.post('/api/addSpenden', (req, res) => {
   const query = 'INSERT INTO spende (wert) VALUES (?)';
   connection.query(query, [wert], (error, results) => {
     if (error) {
-      console.error('Error inserting data:', error);
+      console.error('Spende konnte nicht hinzugefügt werden:', error);
       res.status(500).json({ message: 'Error inserting data' });
     } else {
-      console.log('Data inserted successfully');
+      // console.log('Spende wurde hinzugefügt'); // Log zum Prüfen
       res.status(200).json({ message: 'Data inserted successfully' });
 
       const sumQuery = 'SELECT SUM(wert) AS sum FROM spende';
       connection.query(sumQuery, (sumError, sumResults) => {
         if (sumError) {
-          console.error('Error retrieving sum:', sumError);
+          console.error('Spendensumme konnte nicht erhalten werden:', sumError);
         } else {
           const sum = sumResults[0].sum || 0;
           io.emit('update', { sum }); // 'update' wird an alle verbundenen Clients weitergeleiten
@@ -188,9 +188,9 @@ app.post('/api/addSpenden', (req, res) => {
 app.get('/api/admin', (req, res) => {
   pool.query('SELECT * FROM admin', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Admin Daten konnten nicht erhalten werden:', error);
     } else {
-      console.log('Retrieved data from the "admin" table: ', results);
+      // console.log('Admin Daten erhalten: ', results); // Log zum Prüfen
       res.json(results);
     }
   });
@@ -200,7 +200,7 @@ app.get('/api/admin', (req, res) => {
 app.get('/api/kontaktg', (req, res) => {
   pool.query('SELECT * FROM kontakt', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Kontakt Daten konnten nicht erhalten werden: ', error);
     } else {
       res.json(results);
     }
@@ -211,7 +211,7 @@ app.get('/api/kontaktg', (req, res) => {
 app.get('/api/getemail', (req, res) => {
   pool.query('SELECT * FROM newsletter', (error, results) => {
     if (error) {
-      console.error('Error executing query: ', error);
+      console.error('Newsletter Daten konnten nicht erhalten werden: ', error);
     } else {
       res.json(results);
     }
@@ -225,11 +225,11 @@ app.post('/api/addEmail', (req, res) => {
   const query = 'INSERT INTO newsletter (email) VALUES (?)';
   connection.query(query, [email], (error, results) => {
     if (error) {
-      console.error('Error inserting data:', error);
-      res.status(500).json({ message: 'Error inserting data' });
+      console.error('Email konnte nicht hinzugefügt werden:', error);
+      res.status(500).json({ message: 'Email konnte nicht hinzugefügt werden' });
     } else {
-      console.log('Data inserted successfully');
-      res.status(200).json({ message: 'Data inserted successfully' });
+      // console.log('Email erfolgreich hinzugefügt'); // Log zum Prüfen
+      res.status(200).json({ message: 'Email erfolgreich hinzugefügt' });
     }
   });
 });
@@ -242,15 +242,15 @@ app.post('/api/login', (req, res) => {
   const query = 'SELECT admin_id FROM admin WHERE benutzername = ? AND passwort = ?';
   connection.query(query, [username, password], (err, results) => {
     if (err) {
-      console.error('Error executing MySQL query:', err);
-      res.status(500).json({ error: 'An error occurred' });
+      console.error('Admin Daten konnten nicht erhalten werden:', err);
+      res.status(500).json({ error: 'Ein Fehler ist aufgetreten' });
     } else {
       if (results.length > 0) {
         const adminId = results[0].admin_id;
         res.json({ success: true, adminId });
       } else {
         // Falscher username oder passwort
-        res.status(401).json({ error: 'Invalid username or password' });
+        res.status(401).json({ error: 'Falscher Benutzername oder Passwort' });
       }
     }
   });
@@ -274,10 +274,10 @@ app.post('/api/contact', (req, res) => {
   const query = 'INSERT INTO kontakt (name, email, nachricht) VALUES (?, ?, ?)';
   connection.query(query, [name, email, nachricht], (error, results) => {
     if (error) {
-      console.error('Error saving message to database:', error);
-      res.status(500).json({ message: 'Error saving message to database' });
+      console.error('Nachricht konnte nicht hinzugefügt werden:', error);
+      res.status(500).json({ message: 'Nachricht konnte nicht hinzugefügt werden' });
     } else {
-      res.status(200).json({ message: 'Message saved to database' });
+      res.status(200).json({ message: 'nachricht erfolgreich hinzugefügt' });
     }
   });
 });
